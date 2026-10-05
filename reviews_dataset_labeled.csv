@@ -1,0 +1,67 @@
+review_id,review_text,true_label
+V0001,"Outstanding support team, they went above and beyond to help me.",positive
+V0002,"Really solid product, does everything I need without any fuss.",positive
+V0003,"Absolutely terrible experience, I'm furious and want a refund immediately.",negative
+V0004,Beautifully packaged and the product itself is even better than expected.,positive
+V0005,"Product does what it says on the box, nothing more to add.",neutral
+V0006,Received the wrong size and had to pay for return shipping myself.,negative
+V0007,The order took eleven days to arrive and nobody could tell me why.,negative
+V0008,Received a confirmation email right after placing the order.,neutral
+V0009,I wanted to love this but the constant glitches make it hard to recommend.,negative
+V0010,The subscription auto-renewed without any notice or reminder email.,negative
+V0011,"This is hands down the best purchase I've made all year, absolutely thrilled.",positive
+V0012,Package showed as delivered but it never actually arrived at my address.,negative
+V0013,Excellent quality and the customer service team was wonderful throughout.,positive
+V0014,"Worst purchase I've made in years, do not buy this.",negative
+V0015,Had to contact support four times before anyone actually replied.,negative
+V0016,"Rude staff, broken product, and no refund — a disaster all around.",negative
+V0017,"Amazing value, I was skeptical but it completely won me over.",positive
+V0018,The team was incredibly patient and helpful when I had questions.,positive
+V0019,"Genuinely angry about how this was resolved, or rather, not resolved.",negative
+V0020,"Support was friendly enough, shame the product barely works though.",negative
+V0021,"Sure, it's cheap, and you definitely get what you pay for.",negative
+V0022,"Not bad, not great — does the job but nothing to write home about.",neutral
+V0023,"Extremely unhappy, this was a miserable experience I regret.",negative
+V0024,"The shipping was fast, I'll give it that, but the product itself is mediocre.",neutral
+V0025,Box arrived open and one of the items inside was missing entirely.,negative
+V0026,"Disappointing and frustrating from start to finish, avoid at all costs.",negative
+V0027,"Can't recommend this enough, it's been flawless since day one.",positive
+V0028,"I hate that I wasted money on this, it's genuinely terrible.",negative
+V0029,"It looks nice on the shelf, I suppose, even if it doesn't function well.",negative
+V0030,Everything about this purchase felt smooth and well thought out.,positive
+V0031,"Couldn't be happier, this is exactly as advertised and then some.",positive
+V0032,Delighted with how smooth the whole ordering process was.,positive
+V0033,"Works as intended most of the time, occasional hiccups here and there.",neutral
+V0034,"It's about the same size as my old one, no real difference.",neutral
+V0035,"Instructions were included in the box, fairly standard setup.",neutral
+V0036,"Item stopped working after two uses, no clear reason given by support.",negative
+V0037,Never again — the product failed and support ghosted me completely.,negative
+V0038,"Oh great, another broken unit — really impressive quality control.",negative
+V0039,"Five stars, no notes, this is exactly what I was hoping for.",positive
+V0040,"Awful customer service, the rep was rude and dismissive the entire call.",negative
+V0041,"Superb craftsmanship, this exceeded my expectations by a lot.",positive
+V0042,Comes in a medium-sized box with the standard accessories included.,neutral
+V0043,A genuine pleasure to deal with this company from start to finish.,positive
+V0044,"Fine for the price, I guess, though I expected a bit more polish.",neutral
+V0045,The color is slightly different in person than in the photos.,neutral
+V0046,"Such a letdown, the reviews were misleading and this is subpar.",negative
+V0047,"Disgusted with how this was handled, completely unacceptable.",negative
+V0048,"Beyond frustrated, I've never had such a poor experience with a brand.",negative
+V0049,Checkout failed three separate times before the payment finally processed.,negative
+V0050,Support closed my ticket without resolving the issue I originally reported.,negative
+V0051,"Great experience end to end, will definitely be a repeat customer.",positive
+V0052,"I'm so happy with this, exceeded every expectation I had.",positive
+V0053,"Horrible quality, this broke almost instantly, total waste of money.",negative
+V0054,"Arrived on the expected delivery date, standard packaging.",neutral
+V0055,This company clearly does not care about their customers at all.,negative
+V0056,"Price matches what's listed on the website, no discrepancies.",neutral
+V0057,Still waiting on a response about the missing part from three weeks ago.,negative
+V0058,Love it! Exactly what I needed and the price was fair too.,positive
+V0059,"Ordered on Tuesday, received the following Monday.",neutral
+V0060,"Impressed by how quickly this solved my problem, top-notch service.",positive
+V0061,"Really pleased with the build quality, feels premium and well made.",positive
+V0062,"Fantastic product, arrived quickly and works perfectly, highly recommend.",positive
+V0063,Painfully slow support response and a product that barely functions.,negative
+V0064,The design is lovely but the actual performance left a lot to be desired.,negative
+V0065,"This is garbage, fell apart within a week, infuriating.",negative
+V0066,The packaging listed the ingredients and weight clearly.,neutral

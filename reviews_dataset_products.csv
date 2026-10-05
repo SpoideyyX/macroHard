@@ -1,0 +1,567 @@
+review_id,review_text,review_date,product_area
+R00006,"Checkout for the Solace Weighted Blanket failed twice before payment went through, horrible broken app.",2026-07-20,App / Website UX
+R00003,"The Nimbus Wireless Earbuds feels sturdy and well-built, materials are clearly premium, love it.",2026-07-20,Product Quality
+R00004,"The Kestrel Running Shoes is decent quality for the price, nothing exceptional.",2026-07-20,Product Quality
+R00007,"The Trailhead Backpack 40L came in really nice, sturdy packaging, felt premium and excellent unboxing.",2026-07-20,Packaging
+R00001,"Fast shipping on the Nimbus Wireless Earbuds — ordered Monday, had it by Wednesday, excellent!",2026-07-20,Shipping & Delivery
+R00002,"My Aurora Blender X2 got lost in transit and support was useless, worst delivery experience ever.",2026-07-20,Shipping & Delivery
+R00005,"Reached out about my Kestrel Running Shoes and got a thoughtful, fast reply, excellent support.",2026-07-20,Customer Support
+R00013,"The support agent was rude and dismissive about my Trailhead Backpack 40L, terrible experience.",2026-07-21,Customer Support
+R00012,"The Nimbus Wireless Earbuds broke after only 3 days, terrible quality, very disappointing.",2026-07-21,Product Quality
+R00010,"Delivery was smooth and the Verve Standing Desk was packed well, no damage at all, perfect.",2026-07-21,Shipping & Delivery
+R00008,"My Trailhead Backpack 40L got lost in transit and support was useless, worst delivery experience ever.",2026-07-21,Shipping & Delivery
+R00015,"The Kestrel Running Shoes is priced about the same as competitors, fair enough.",2026-07-21,Pricing & Value
+R00011,"The Aurora Blender X2 is decent quality for the price, nothing exceptional.",2026-07-21,Product Quality
+R00018,"The Trailhead Backpack 40L packaging was flimsy and cheap, item scuffed badly, disappointing.",2026-07-21,Packaging
+R00014,"Worth every penny — the Verve Standing Desk outperforms pricier alternatives, fantastic deal.",2026-07-21,Pricing & Value
+R00009,"My Aurora Blender X2 got lost in transit and support was useless, worst delivery experience ever.",2026-07-21,Shipping & Delivery
+R00017,"The box for the Nimbus Wireless Earbuds was crushed, padding shifted everywhere, terrible packaging.",2026-07-21,Packaging
+R00016,"Checkout for the Verve Standing Desk failed twice before payment went through, horrible broken app.",2026-07-21,App / Website UX
+R00026,"Customer service for the Kestrel Running Shoes was fine, average response time.",2026-07-22,Customer Support
+R00020,"Courier was friendly and the Nimbus Wireless Earbuds showed up right on schedule, wonderful service.",2026-07-22,Shipping & Delivery
+R00023,"Received a defective Kestrel Running Shoes — a part was cracked, awful, poor quality control.",2026-07-22,Product Quality
+R00021,"Delivery was smooth and the Verve Standing Desk was packed well, no damage at all, perfect.",2026-07-22,Shipping & Delivery
+R00019,"Courier left my Nimbus Wireless Earbuds out in the rain, soaked and damaged, horrible handling.",2026-07-22,Shipping & Delivery
+R00029,"Way too much wasteful plastic packaging for such a small Trailhead Backpack 40L, frustrating and awful.",2026-07-22,Packaging
+R00027,"The Verve Standing Desk feels way overpriced for what you get, terrible value, disappointing.",2026-07-22,Pricing & Value
+R00024,"The Aurora Blender X2 feels sturdy and well-built, materials are clearly premium, love it.",2026-07-22,Product Quality
+R00025,"Build quality on the Kestrel Running Shoes is about what I expected, no surprises.",2026-07-22,Product Quality
+R00022,"My Trailhead Backpack 40L stopped working entirely, infuriating, clearly a quality control disaster.",2026-07-22,Product Quality
+R00028,"Not worth the cost — the Aurora Blender X2 underdelivers badly, frustrating waste of money.",2026-07-22,Pricing & Value
+R00038,"App login bugged out repeatedly while tracking my Solace Weighted Blanket, terrible, infuriating experience.",2026-07-23,App / Website UX
+R00035,"The support agent was rude and dismissive about my Nimbus Wireless Earbuds, terrible experience.",2026-07-23,Customer Support
+R00032,"Build quality on the Aurora Blender X2 is about what I expected, no surprises.",2026-07-23,Product Quality
+R00030,"The Nimbus Wireless Earbuds took about a week to arrive, nothing unusual either way.",2026-07-23,Shipping & Delivery
+R00034,"Refund for my Solace Weighted Blanket was processed quickly, amazing quick support chat, thank you.",2026-07-23,Customer Support
+R00036,"The Trailhead Backpack 40L feels way overpriced for what you get, terrible value, disappointing.",2026-07-23,Pricing & Value
+R00037,"Price of the Verve Standing Desk jumped right after I bought it, infuriating, feels like a ripoff.",2026-07-23,Pricing & Value
+R00033,"The Nimbus Wireless Earbuds feels cheap and flimsy, plastic parts loose already, horrible.",2026-07-23,Product Quality
+R00031,"My Kestrel Running Shoes got lost in transit and support was useless, worst delivery experience ever.",2026-07-23,Shipping & Delivery
+R00044,"Reached out about my Trailhead Backpack 40L and got a thoughtful, fast reply, excellent support.",2026-07-24,Customer Support
+R00041,"Courier left my Aurora Blender X2 out in the rain, soaked and damaged, horrible handling.",2026-07-24,Shipping & Delivery
+R00042,"Really impressed with the excellent build quality of the Nimbus Wireless Earbuds, fantastic daily use.",2026-07-24,Product Quality
+R00046,"Got the Trailhead Backpack 40L on sale and it feels like a steal, amazing value, love it.",2026-07-24,Pricing & Value
+R00040,"My Nimbus Wireless Earbuds arrived two days early, love the great tracking updates throughout.",2026-07-24,Shipping & Delivery
+R00047,"Loved how easy the website made it to compare Nimbus Wireless Earbuds options, fantastic design.",2026-07-24,App / Website UX
+R00048,"Packaging for the Solace Weighted Blanket was standard, did the job.",2026-07-24,Packaging
+R00039,"Fast shipping on the Kestrel Running Shoes — ordered Monday, had it by Wednesday, excellent!",2026-07-24,Shipping & Delivery
+R00049,"The Aurora Blender X2 came in really nice, sturdy packaging, felt premium and excellent unboxing.",2026-07-24,Packaging
+R00045,"Refund for my Aurora Blender X2 was processed quickly, amazing quick support chat, thank you.",2026-07-24,Customer Support
+R00043,"My Nimbus Wireless Earbuds stopped working entirely, infuriating, clearly a quality control disaster.",2026-07-24,Product Quality
+R00057,"The support agent was rude and dismissive about my Kestrel Running Shoes, terrible experience.",2026-07-25,Customer Support
+R00055,"The Aurora Blender X2 is decent quality for the price, nothing exceptional.",2026-07-25,Product Quality
+R00060,"Packaging on the Solace Weighted Blanket was eco-friendly and protective, wonderful, well done.",2026-07-25,Packaging
+R00054,"The Aurora Blender X2 broke after only 12 days, terrible quality, very disappointing.",2026-07-25,Product Quality
+R00050,"Courier was friendly and the Aurora Blender X2 showed up right on schedule, wonderful service.",2026-07-25,Shipping & Delivery
+R00056,"Support team resolved my Solace Weighted Blanket issue within an hour, wonderful, super helpful agent.",2026-07-25,Customer Support
+R00052,"Courier was friendly and the Nimbus Wireless Earbuds showed up right on schedule, wonderful service.",2026-07-25,Shipping & Delivery
+R00051,"Courier was friendly and the Trailhead Backpack 40L showed up right on schedule, wonderful service.",2026-07-25,Shipping & Delivery
+R00053,"The Kestrel Running Shoes feels sturdy and well-built, materials are clearly premium, love it.",2026-07-25,Product Quality
+R00059,"The website kept crashing during Trailhead Backpack 40L checkout, awful, so frustrating to deal with.",2026-07-25,App / Website UX
+R00058,"Value for the Verve Standing Desk is reasonable, not a standout deal either way.",2026-07-25,Pricing & Value
+R00066,"Support team resolved my Verve Standing Desk issue within an hour, wonderful, super helpful agent.",2026-07-26,Customer Support
+R00063,"Courier left my Trailhead Backpack 40L out in the rain, soaked and damaged, horrible handling.",2026-07-26,Shipping & Delivery
+R00069,"App experience for tracking my Solace Weighted Blanket order was clean and simple, great job.",2026-07-26,App / Website UX
+R00071,"Packaging on the Kestrel Running Shoes was eco-friendly and protective, wonderful, well done.",2026-07-26,Packaging
+R00062,"The Trailhead Backpack 40L took about a week to arrive, nothing unusual either way.",2026-07-26,Shipping & Delivery
+R00064,"Delivery was smooth and the Kestrel Running Shoes was packed well, no damage at all, perfect.",2026-07-26,Shipping & Delivery
+R00067,"Refund for my Nimbus Wireless Earbuds was processed quickly, amazing quick support chat, thank you.",2026-07-26,Customer Support
+R00068,"Got the Trailhead Backpack 40L on sale and it feels like a steal, amazing value, love it.",2026-07-26,Pricing & Value
+R00072,"Packaging for the Aurora Blender X2 was standard, did the job.",2026-07-26,Packaging
+R00061,"My Aurora Blender X2 arrived two days early, love the great tracking updates throughout.",2026-07-26,Shipping & Delivery
+R00070,"Packaging on the Nimbus Wireless Earbuds was eco-friendly and protective, wonderful, well done.",2026-07-26,Packaging
+R00065,"The Verve Standing Desk feels cheap and flimsy, plastic parts loose already, horrible.",2026-07-26,Product Quality
+R00077,"The Solace Weighted Blanket feels way overpriced for what you get, terrible value, disappointing.",2026-07-27,Pricing & Value
+R00079,"The checkout for ordering the Solace Weighted Blanket was smooth and fast, excellent app experience.",2026-07-27,App / Website UX
+R00080,"Packaging on the Trailhead Backpack 40L was eco-friendly and protective, wonderful, well done.",2026-07-27,Packaging
+R00076,"The support agent was rude and dismissive about my Nimbus Wireless Earbuds, terrible experience.",2026-07-27,Customer Support
+R00078,"Worth every penny — the Solace Weighted Blanket outperforms pricier alternatives, fantastic deal.",2026-07-27,Pricing & Value
+R00074,"Really impressed with the excellent build quality of the Aurora Blender X2, fantastic daily use.",2026-07-27,Product Quality
+R00081,"The box for the Nimbus Wireless Earbuds was crushed, padding shifted everywhere, terrible packaging.",2026-07-27,Packaging
+R00073,"The Solace Weighted Blanket took about a week to arrive, nothing unusual either way.",2026-07-27,Shipping & Delivery
+R00075,"The Verve Standing Desk feels sturdy and well-built, materials are clearly premium, love it.",2026-07-27,Product Quality
+R00083,"Standard shipping time for the Verve Standing Desk, no complaints or praise really.",2026-07-28,Shipping & Delivery
+R00084,"The Trailhead Backpack 40L broke after only 4 days, terrible quality, very disappointing.",2026-07-28,Product Quality
+R00082,"My Trailhead Backpack 40L arrived two days early, love the great tracking updates throughout.",2026-07-28,Shipping & Delivery
+R00085,"Loved how easy the website made it to compare Solace Weighted Blanket options, fantastic design.",2026-07-28,App / Website UX
+R00086,"App experience for tracking my Nimbus Wireless Earbuds order was clean and simple, great job.",2026-07-28,App / Website UX
+R00087,"Packaging on the Aurora Blender X2 was eco-friendly and protective, wonderful, well done.",2026-07-28,Packaging
+R00088,"Courier left my Kestrel Running Shoes out in the rain, soaked and damaged, horrible handling.",2026-07-29,Shipping & Delivery
+R00090,"Build quality on the Trailhead Backpack 40L is about what I expected, no surprises.",2026-07-29,Product Quality
+R00091,"Received a defective Nimbus Wireless Earbuds — a part was cracked, awful, poor quality control.",2026-07-29,Product Quality
+R00092,"The support agent was rude and dismissive about my Kestrel Running Shoes, terrible experience.",2026-07-29,Customer Support
+R00095,"The Kestrel Running Shoes came in really nice, sturdy packaging, felt premium and excellent unboxing.",2026-07-29,Packaging
+R00096,"Way too much wasteful plastic packaging for such a small Nimbus Wireless Earbuds, frustrating and awful.",2026-07-29,Packaging
+R00089,"Terrible delivery experience — my Verve Standing Desk was delayed 6 days with zero updates, so frustrating.",2026-07-29,Shipping & Delivery
+R00094,"Website was okay for browsing Solace Weighted Blanket options, could be faster.",2026-07-29,App / Website UX
+R00093,"The Trailhead Backpack 40L is a great value for the price, excellent, would buy again happily.",2026-07-29,Pricing & Value
+R00097,"The Nimbus Wireless Earbuds took about a week to arrive, nothing unusual either way.",2026-07-30,Shipping & Delivery
+R00098,"Fast shipping on the Nimbus Wireless Earbuds — ordered Monday, had it by Wednesday, excellent!",2026-07-30,Shipping & Delivery
+R00103,"No one from support followed up on my Aurora Blender X2 complaint, horrible, worst service.",2026-07-30,Customer Support
+R00102,"No one from support followed up on my Nimbus Wireless Earbuds complaint, horrible, worst service.",2026-07-30,Customer Support
+R00099,"Really impressed with the excellent build quality of the Kestrel Running Shoes, fantastic daily use.",2026-07-30,Product Quality
+R00101,"The Nimbus Wireless Earbuds is decent quality for the price, nothing exceptional.",2026-07-30,Product Quality
+R00104,"Customer support never responded about my Solace Weighted Blanket issue, waited 4 days, awful.",2026-07-30,Customer Support
+R00100,"The Verve Standing Desk is decent quality for the price, nothing exceptional.",2026-07-30,Product Quality
+R00105,"Checkout for the Trailhead Backpack 40L failed twice before payment went through, horrible broken app.",2026-07-30,App / Website UX
+R00111,"The box for the Solace Weighted Blanket was crushed, padding shifted everywhere, terrible packaging.",2026-07-31,Packaging
+R00107,"The Verve Standing Desk is decent quality for the price, nothing exceptional.",2026-07-31,Product Quality
+R00110,"The checkout for ordering the Solace Weighted Blanket was smooth and fast, excellent app experience.",2026-07-31,App / Website UX
+R00109,"The support agent was rude and dismissive about my Trailhead Backpack 40L, terrible experience.",2026-07-31,Customer Support
+R00106,"Standard shipping time for the Nimbus Wireless Earbuds, no complaints or praise really.",2026-07-31,Shipping & Delivery
+R00108,"Customer service for the Solace Weighted Blanket was fine, average response time.",2026-07-31,Customer Support
+R00112,"Packaging on the Solace Weighted Blanket was eco-friendly and protective, wonderful, well done.",2026-07-31,Packaging
+R00119,"Customer support never responded about my Solace Weighted Blanket issue, waited 2 days, awful.",2026-08-01,Customer Support
+R00114,"My Solace Weighted Blanket got lost in transit and support was useless, worst delivery experience ever.",2026-08-01,Shipping & Delivery
+R00115,"Delivery was smooth and the Trailhead Backpack 40L was packed well, no damage at all, perfect.",2026-08-01,Shipping & Delivery
+R00118,"Really impressed with the excellent build quality of the Verve Standing Desk, fantastic daily use.",2026-08-01,Product Quality
+R00122,"Packaging on the Trailhead Backpack 40L was eco-friendly and protective, wonderful, well done.",2026-08-01,Packaging
+R00116,"My Kestrel Running Shoes stopped working entirely, infuriating, clearly a quality control disaster.",2026-08-01,Product Quality
+R00113,"My Verve Standing Desk got lost in transit and support was useless, worst delivery experience ever.",2026-08-01,Shipping & Delivery
+R00120,"The website kept crashing during Aurora Blender X2 checkout, awful, so frustrating to deal with.",2026-08-01,App / Website UX
+R00121,"The checkout for ordering the Solace Weighted Blanket was smooth and fast, excellent app experience.",2026-08-01,App / Website UX
+R00117,"Build quality on the Solace Weighted Blanket is about what I expected, no surprises.",2026-08-01,Product Quality
+R00124,"Terrible delivery experience — my Aurora Blender X2 was delayed 5 days with zero updates, so frustrating.",2026-08-02,Shipping & Delivery
+R00125,"The Kestrel Running Shoes feels sturdy and well-built, materials are clearly premium, love it.",2026-08-02,Product Quality
+R00123,"My Trailhead Backpack 40L arrived two days early, love the great tracking updates throughout.",2026-08-02,Shipping & Delivery
+R00126,"Really impressed with the excellent build quality of the Verve Standing Desk, fantastic daily use.",2026-08-02,Product Quality
+R00128,"The Trailhead Backpack 40L feels way overpriced for what you get, terrible value, disappointing.",2026-08-02,Pricing & Value
+R00127,"Tried getting a refund for the Nimbus Wireless Earbuds but support gave the runaround, so frustrating.",2026-08-02,Customer Support
+R00132,"Refund for my Trailhead Backpack 40L was processed quickly, amazing quick support chat, thank you.",2026-08-03,Customer Support
+R00134,"App login bugged out repeatedly while tracking my Nimbus Wireless Earbuds, terrible, infuriating experience.",2026-08-03,App / Website UX
+R00130,"Really impressed with the excellent build quality of the Verve Standing Desk, fantastic daily use.",2026-08-03,Product Quality
+R00131,"Refund for my Solace Weighted Blanket was processed quickly, amazing quick support chat, thank you.",2026-08-03,Customer Support
+R00133,"Loved how easy the website made it to compare Verve Standing Desk options, fantastic design.",2026-08-03,App / Website UX
+R00129,"Fast shipping on the Aurora Blender X2 — ordered Monday, had it by Wednesday, excellent!",2026-08-03,Shipping & Delivery
+R00139,"Worth every penny — the Trailhead Backpack 40L outperforms pricier alternatives, fantastic deal.",2026-08-04,Pricing & Value
+R00140,"The checkout for ordering the Kestrel Running Shoes was smooth and fast, excellent app experience.",2026-08-04,App / Website UX
+R00136,"The Aurora Blender X2 feels sturdy and well-built, materials are clearly premium, love it.",2026-08-04,Product Quality
+R00137,"Customer service for the Trailhead Backpack 40L was fine, average response time.",2026-08-04,Customer Support
+R00135,"Shipping took a horrendous 6 weeks for the Solace Weighted Blanket, completely unacceptable.",2026-08-04,Shipping & Delivery
+R00141,"App experience for tracking my Solace Weighted Blanket order was clean and simple, great job.",2026-08-04,App / Website UX
+R00138,"Customer service for the Nimbus Wireless Earbuds was fine, average response time.",2026-08-04,Customer Support
+R00147,"Got the Kestrel Running Shoes on sale and it feels like a steal, amazing value, love it.",2026-08-05,Pricing & Value
+R00146,"Support team resolved my Aurora Blender X2 issue within an hour, wonderful, super helpful agent.",2026-08-05,Customer Support
+R00143,"Fast shipping on the Solace Weighted Blanket — ordered Monday, had it by Wednesday, excellent!",2026-08-05,Shipping & Delivery
+R00149,"Website was okay for browsing Aurora Blender X2 options, could be faster.",2026-08-05,App / Website UX
+R00148,"Got the Solace Weighted Blanket on sale and it feels like a steal, amazing value, love it.",2026-08-05,Pricing & Value
+R00144,"The Trailhead Backpack 40L is durable and hasn't shown any wear, great quality, highly satisfied.",2026-08-05,Product Quality
+R00142,"Standard shipping time for the Solace Weighted Blanket, no complaints or praise really.",2026-08-05,Shipping & Delivery
+R00145,"Build quality on the Solace Weighted Blanket is about what I expected, no surprises.",2026-08-05,Product Quality
+R00152,"Build quality on the Aurora Blender X2 is about what I expected, no surprises.",2026-08-06,Product Quality
+R00158,"App login bugged out repeatedly while tracking my Kestrel Running Shoes, terrible, infuriating experience.",2026-08-06,App / Website UX
+R00151,"My Trailhead Backpack 40L got lost in transit and support was useless, worst delivery experience ever.",2026-08-06,Shipping & Delivery
+R00156,"Tried getting a refund for the Aurora Blender X2 but support gave the runaround, so frustrating.",2026-08-06,Customer Support
+R00154,"The Trailhead Backpack 40L feels sturdy and well-built, materials are clearly premium, love it.",2026-08-06,Product Quality
+R00157,"Worth every penny — the Kestrel Running Shoes outperforms pricier alternatives, fantastic deal.",2026-08-06,Pricing & Value
+R00155,"Support answered my Nimbus Wireless Earbuds question, took a couple days but got resolved.",2026-08-06,Customer Support
+R00153,"Build quality on the Solace Weighted Blanket is about what I expected, no surprises.",2026-08-06,Product Quality
+R00150,"Fast shipping on the Trailhead Backpack 40L — ordered Monday, had it by Wednesday, excellent!",2026-08-06,Shipping & Delivery
+R00159,"The Nimbus Wireless Earbuds took about a week to arrive, nothing unusual either way.",2026-08-07,Shipping & Delivery
+R00160,"My Nimbus Wireless Earbuds arrived two days early, love the great tracking updates throughout.",2026-08-07,Shipping & Delivery
+R00163,"The Trailhead Backpack 40L feels sturdy and well-built, materials are clearly premium, love it.",2026-08-07,Product Quality
+R00164,"Tried getting a refund for the Verve Standing Desk but support gave the runaround, so frustrating.",2026-08-07,Customer Support
+R00162,"The Kestrel Running Shoes is durable and hasn't shown any wear, great quality, highly satisfied.",2026-08-07,Product Quality
+R00161,"The Nimbus Wireless Earbuds feels sturdy and well-built, materials are clearly premium, love it.",2026-08-07,Product Quality
+R00165,"Packaging for the Nimbus Wireless Earbuds was standard, did the job.",2026-08-07,Packaging
+R00172,"The Solace Weighted Blanket is decent quality for the price, nothing exceptional.",2026-08-08,Product Quality
+R00167,"Standard shipping time for the Verve Standing Desk, no complaints or praise really.",2026-08-08,Shipping & Delivery
+R00170,"The Aurora Blender X2 is decent quality for the price, nothing exceptional.",2026-08-08,Product Quality
+R00174,"Reached out about my Trailhead Backpack 40L and got a thoughtful, fast reply, excellent support.",2026-08-08,Customer Support
+R00175,"Not worth the cost — the Solace Weighted Blanket underdelivers badly, frustrating waste of money.",2026-08-08,Pricing & Value
+R00169,"My Solace Weighted Blanket arrived two days early, love the great tracking updates throughout.",2026-08-08,Shipping & Delivery
+R00176,"Checkout for the Aurora Blender X2 failed twice before payment went through, horrible broken app.",2026-08-08,App / Website UX
+R00173,"Customer service for the Aurora Blender X2 was fine, average response time.",2026-08-08,Customer Support
+R00168,"My Kestrel Running Shoes got lost in transit and support was useless, worst delivery experience ever.",2026-08-08,Shipping & Delivery
+R00166,"Standard shipping time for the Solace Weighted Blanket, no complaints or praise really.",2026-08-08,Shipping & Delivery
+R00179,"Way too much wasteful plastic packaging for such a small Solace Weighted Blanket, frustrating and awful.",2026-08-08,Packaging
+R00171,"The Verve Standing Desk broke after only 6 days, terrible quality, very disappointing.",2026-08-08,Product Quality
+R00178,"The Kestrel Running Shoes packaging was flimsy and cheap, item scuffed badly, disappointing.",2026-08-08,Packaging
+R00177,"Packaging on the Trailhead Backpack 40L was eco-friendly and protective, wonderful, well done.",2026-08-08,Packaging
+R00187,"The Nimbus Wireless Earbuds packaging was flimsy and cheap, item scuffed badly, disappointing.",2026-08-09,Packaging
+R00186,"The Solace Weighted Blanket is priced about the same as competitors, fair enough.",2026-08-09,Pricing & Value
+R00181,"Awful, my Trailhead Backpack 40L never showed up despite tracking saying delivered, absolutely ridiculous.",2026-08-09,Shipping & Delivery
+R00182,"Shipping took a horrendous 12 weeks for the Verve Standing Desk, completely unacceptable.",2026-08-09,Shipping & Delivery
+R00183,"The Kestrel Running Shoes is durable and hasn't shown any wear, great quality, highly satisfied.",2026-08-09,Product Quality
+R00185,"Customer support never responded about my Solace Weighted Blanket issue, waited 3 days, awful.",2026-08-09,Customer Support
+R00180,"Standard shipping time for the Verve Standing Desk, no complaints or praise really.",2026-08-09,Shipping & Delivery
+R00184,"The Kestrel Running Shoes feels cheap and flimsy, plastic parts loose already, horrible.",2026-08-09,Product Quality
+R00194,"App experience for tracking my Solace Weighted Blanket order was clean and simple, great job.",2026-08-10,App / Website UX
+R00195,"The Solace Weighted Blanket came in really nice, sturdy packaging, felt premium and excellent unboxing.",2026-08-10,Packaging
+R00190,"The Aurora Blender X2 feels cheap and flimsy, plastic parts loose already, horrible.",2026-08-10,Product Quality
+R00196,"Packaging on the Aurora Blender X2 was eco-friendly and protective, wonderful, well done.",2026-08-10,Packaging
+R00189,"Courier left my Solace Weighted Blanket out in the rain, soaked and damaged, horrible handling.",2026-08-10,Shipping & Delivery
+R00193,"Price of the Nimbus Wireless Earbuds jumped right after I bought it, infuriating, feels like a ripoff.",2026-08-10,Pricing & Value
+R00191,"My Nimbus Wireless Earbuds stopped working entirely, infuriating, clearly a quality control disaster.",2026-08-10,Product Quality
+R00188,"My Verve Standing Desk got lost in transit and support was useless, worst delivery experience ever.",2026-08-10,Shipping & Delivery
+R00192,"Customer service for the Solace Weighted Blanket was fine, average response time.",2026-08-10,Customer Support
+R00206,"Packaging on the Kestrel Running Shoes was eco-friendly and protective, wonderful, well done.",2026-08-11,Packaging
+R00205,"The app worked fine for ordering the Nimbus Wireless Earbuds, nothing notable.",2026-08-11,App / Website UX
+R00199,"Standard shipping time for the Verve Standing Desk, no complaints or praise really.",2026-08-11,Shipping & Delivery
+R00198,"Delivery was smooth and the Trailhead Backpack 40L was packed well, no damage at all, perfect.",2026-08-11,Shipping & Delivery
+R00201,"The Verve Standing Desk is decent quality for the price, nothing exceptional.",2026-08-11,Product Quality
+R00200,"Shipping took a horrendous 2 weeks for the Kestrel Running Shoes, completely unacceptable.",2026-08-11,Shipping & Delivery
+R00204,"Support team resolved my Trailhead Backpack 40L issue within an hour, wonderful, super helpful agent.",2026-08-11,Customer Support
+R00197,"Fast shipping on the Solace Weighted Blanket — ordered Monday, had it by Wednesday, excellent!",2026-08-11,Shipping & Delivery
+R00202,"The Solace Weighted Blanket broke after only 3 days, terrible quality, very disappointing.",2026-08-11,Product Quality
+R00203,"The Solace Weighted Blanket broke after only 4 days, terrible quality, very disappointing.",2026-08-11,Product Quality
+R00209,"Really impressed with the excellent build quality of the Kestrel Running Shoes, fantastic daily use.",2026-08-12,Product Quality
+R00212,"The Aurora Blender X2 packaging was flimsy and cheap, item scuffed badly, disappointing.",2026-08-12,Packaging
+R00208,"My Trailhead Backpack 40L stopped working entirely, infuriating, clearly a quality control disaster.",2026-08-12,Product Quality
+R00207,"Delivery was smooth and the Solace Weighted Blanket was packed well, no damage at all, perfect.",2026-08-12,Shipping & Delivery
+R00210,"Reached out about my Nimbus Wireless Earbuds and got a thoughtful, fast reply, excellent support.",2026-08-12,Customer Support
+R00211,"The Nimbus Wireless Earbuds feels way overpriced for what you get, terrible value, disappointing.",2026-08-12,Pricing & Value
+R00222,"App login bugged out repeatedly while tracking my Aurora Blender X2, terrible, infuriating experience.",2026-08-13,App / Website UX
+R00214,"Courier left my Nimbus Wireless Earbuds out in the rain, soaked and damaged, horrible handling.",2026-08-13,Shipping & Delivery
+R00223,"The website kept crashing during Verve Standing Desk checkout, awful, so frustrating to deal with.",2026-08-13,App / Website UX
+R00216,"Received a defective Verve Standing Desk — a part was cracked, awful, poor quality control.",2026-08-13,Product Quality
+R00221,"App login bugged out repeatedly while tracking my Verve Standing Desk, terrible, infuriating experience.",2026-08-13,App / Website UX
+R00219,"Support team resolved my Kestrel Running Shoes issue within an hour, wonderful, super helpful agent.",2026-08-13,Customer Support
+R00215,"The Kestrel Running Shoes feels sturdy and well-built, materials are clearly premium, love it.",2026-08-13,Product Quality
+R00217,"The Trailhead Backpack 40L broke after only 12 days, terrible quality, very disappointing.",2026-08-13,Product Quality
+R00218,"Reached out about my Trailhead Backpack 40L and got a thoughtful, fast reply, excellent support.",2026-08-13,Customer Support
+R00213,"Terrible delivery experience — my Kestrel Running Shoes was delayed 12 days with zero updates, so frustrating.",2026-08-13,Shipping & Delivery
+R00220,"Value for the Nimbus Wireless Earbuds is reasonable, not a standout deal either way.",2026-08-13,Pricing & Value
+R00230,"Support answered my Nimbus Wireless Earbuds question, took a couple days but got resolved.",2026-08-14,Customer Support
+R00224,"Courier was friendly and the Aurora Blender X2 showed up right on schedule, wonderful service.",2026-08-14,Shipping & Delivery
+R00229,"The Nimbus Wireless Earbuds is decent quality for the price, nothing exceptional.",2026-08-14,Product Quality
+R00227,"Standard shipping time for the Kestrel Running Shoes, no complaints or praise really.",2026-08-14,Shipping & Delivery
+R00234,"Loved how easy the website made it to compare Nimbus Wireless Earbuds options, fantastic design.",2026-08-14,App / Website UX
+R00233,"App login bugged out repeatedly while tracking my Aurora Blender X2, terrible, infuriating experience.",2026-08-14,App / Website UX
+R00232,"The Solace Weighted Blanket is priced about the same as competitors, fair enough.",2026-08-14,Pricing & Value
+R00225,"Standard shipping time for the Trailhead Backpack 40L, no complaints or praise really.",2026-08-14,Shipping & Delivery
+R00231,"Reached out about my Verve Standing Desk and got a thoughtful, fast reply, excellent support.",2026-08-14,Customer Support
+R00226,"Standard shipping time for the Aurora Blender X2, no complaints or praise really.",2026-08-14,Shipping & Delivery
+R00228,"Build quality on the Verve Standing Desk is about what I expected, no surprises.",2026-08-14,Product Quality
+R00240,"Received a defective Trailhead Backpack 40L — a part was cracked, awful, poor quality control.",2026-08-15,Product Quality
+R00242,"Customer support never responded about my Verve Standing Desk issue, waited 2 days, awful.",2026-08-15,Customer Support
+R00238,"Received a defective Nimbus Wireless Earbuds — a part was cracked, awful, poor quality control.",2026-08-15,Product Quality
+R00243,"Checkout for the Trailhead Backpack 40L failed twice before payment went through, horrible broken app.",2026-08-15,App / Website UX
+R00246,"Way too much wasteful plastic packaging for such a small Kestrel Running Shoes, frustrating and awful.",2026-08-15,Packaging
+R00244,"The checkout for ordering the Nimbus Wireless Earbuds was smooth and fast, excellent app experience.",2026-08-15,App / Website UX
+R00237,"My Aurora Blender X2 got lost in transit and support was useless, worst delivery experience ever.",2026-08-15,Shipping & Delivery
+R00239,"The Nimbus Wireless Earbuds is durable and hasn't shown any wear, great quality, highly satisfied.",2026-08-15,Product Quality
+R00241,"Support team resolved my Nimbus Wireless Earbuds issue within an hour, wonderful, super helpful agent.",2026-08-15,Customer Support
+R00236,"My Solace Weighted Blanket arrived two days early, love the great tracking updates throughout.",2026-08-15,Shipping & Delivery
+R00235,"Standard shipping time for the Aurora Blender X2, no complaints or praise really.",2026-08-15,Shipping & Delivery
+R00245,"Packaging for the Solace Weighted Blanket was standard, did the job.",2026-08-15,Packaging
+R00247,"Standard shipping time for the Solace Weighted Blanket, no complaints or praise really.",2026-08-16,Shipping & Delivery
+R00253,"Price of the Kestrel Running Shoes jumped right after I bought it, infuriating, feels like a ripoff.",2026-08-16,Pricing & Value
+R00255,"The Solace Weighted Blanket packaging was flimsy and cheap, item scuffed badly, disappointing.",2026-08-16,Packaging
+R00248,"Courier was friendly and the Solace Weighted Blanket showed up right on schedule, wonderful service.",2026-08-16,Shipping & Delivery
+R00250,"The Trailhead Backpack 40L feels sturdy and well-built, materials are clearly premium, love it.",2026-08-16,Product Quality
+R00251,"Customer service for the Solace Weighted Blanket was fine, average response time.",2026-08-16,Customer Support
+R00252,"Customer service for the Aurora Blender X2 was fine, average response time.",2026-08-16,Customer Support
+R00254,"Packaging on the Solace Weighted Blanket was eco-friendly and protective, wonderful, well done.",2026-08-16,Packaging
+R00249,"My Verve Standing Desk stopped working entirely, infuriating, clearly a quality control disaster.",2026-08-16,Product Quality
+R00260,"Not worth the cost — the Verve Standing Desk underdelivers badly, frustrating waste of money.",2026-08-17,Pricing & Value
+R00258,"The Nimbus Wireless Earbuds feels cheap and flimsy, plastic parts loose already, horrible.",2026-08-17,Product Quality
+R00261,"App experience for tracking my Kestrel Running Shoes order was clean and simple, great job.",2026-08-17,App / Website UX
+R00257,"Terrible delivery experience — my Solace Weighted Blanket was delayed 3 days with zero updates, so frustrating.",2026-08-17,Shipping & Delivery
+R00256,"Courier was friendly and the Aurora Blender X2 showed up right on schedule, wonderful service.",2026-08-17,Shipping & Delivery
+R00263,"Packaging on the Aurora Blender X2 was eco-friendly and protective, wonderful, well done.",2026-08-17,Packaging
+R00262,"Loved how easy the website made it to compare Nimbus Wireless Earbuds options, fantastic design.",2026-08-17,App / Website UX
+R00259,"Support team resolved my Solace Weighted Blanket issue within an hour, wonderful, super helpful agent.",2026-08-17,Customer Support
+R00268,"Got the Verve Standing Desk on sale and it feels like a steal, amazing value, love it.",2026-08-18,Pricing & Value
+R00265,"Build quality on the Aurora Blender X2 is about what I expected, no surprises.",2026-08-18,Product Quality
+R00267,"Price of the Verve Standing Desk jumped right after I bought it, infuriating, feels like a ripoff.",2026-08-18,Pricing & Value
+R00270,"Packaging on the Kestrel Running Shoes was eco-friendly and protective, wonderful, well done.",2026-08-18,Packaging
+R00266,"Tried getting a refund for the Aurora Blender X2 but support gave the runaround, so frustrating.",2026-08-18,Customer Support
+R00264,"My Kestrel Running Shoes got lost in transit and support was useless, worst delivery experience ever.",2026-08-18,Shipping & Delivery
+R00269,"Got the Nimbus Wireless Earbuds on sale and it feels like a steal, amazing value, love it.",2026-08-18,Pricing & Value
+R00271,"Terrible delivery experience — my Verve Standing Desk was delayed 3 days with zero updates, so frustrating.",2026-08-19,Shipping & Delivery
+R00277,"Not worth the cost — the Trailhead Backpack 40L underdelivers badly, frustrating waste of money.",2026-08-19,Pricing & Value
+R00275,"Build quality on the Aurora Blender X2 is about what I expected, no surprises.",2026-08-19,Product Quality
+R00272,"Courier was friendly and the Solace Weighted Blanket showed up right on schedule, wonderful service.",2026-08-19,Shipping & Delivery
+R00281,"The Trailhead Backpack 40L came in really nice, sturdy packaging, felt premium and excellent unboxing.",2026-08-19,Packaging
+R00274,"The Trailhead Backpack 40L feels sturdy and well-built, materials are clearly premium, love it.",2026-08-19,Product Quality
+R00273,"Fast shipping on the Kestrel Running Shoes — ordered Monday, had it by Wednesday, excellent!",2026-08-19,Shipping & Delivery
+R00280,"App experience for tracking my Aurora Blender X2 order was clean and simple, great job.",2026-08-19,App / Website UX
+R00278,"Got the Solace Weighted Blanket on sale and it feels like a steal, amazing value, love it.",2026-08-19,Pricing & Value
+R00279,"App experience for tracking my Verve Standing Desk order was clean and simple, great job.",2026-08-19,App / Website UX
+R00282,"Packaging for the Trailhead Backpack 40L was standard, did the job.",2026-08-19,Packaging
+R00276,"Reached out about my Nimbus Wireless Earbuds and got a thoughtful, fast reply, excellent support.",2026-08-19,Customer Support
+R00283,"Courier was friendly and the Verve Standing Desk showed up right on schedule, wonderful service.",2026-08-20,Shipping & Delivery
+R00287,"Support answered my Trailhead Backpack 40L question, took a couple days but got resolved.",2026-08-20,Customer Support
+R00289,"Support team resolved my Nimbus Wireless Earbuds issue within an hour, wonderful, super helpful agent.",2026-08-20,Customer Support
+R00284,"The Nimbus Wireless Earbuds feels sturdy and well-built, materials are clearly premium, love it.",2026-08-20,Product Quality
+R00291,"Price of the Solace Weighted Blanket jumped right after I bought it, infuriating, feels like a ripoff.",2026-08-20,Pricing & Value
+R00285,"The Solace Weighted Blanket is decent quality for the price, nothing exceptional.",2026-08-20,Product Quality
+R00292,"App experience for tracking my Verve Standing Desk order was clean and simple, great job.",2026-08-20,App / Website UX
+R00290,"Price of the Aurora Blender X2 jumped right after I bought it, infuriating, feels like a ripoff.",2026-08-20,Pricing & Value
+R00288,"The support agent was rude and dismissive about my Nimbus Wireless Earbuds, terrible experience.",2026-08-20,Customer Support
+R00286,"Received a defective Trailhead Backpack 40L — a part was cracked, awful, poor quality control.",2026-08-20,Product Quality
+R00300,"Not worth the cost — the Aurora Blender X2 underdelivers badly, frustrating waste of money.",2026-08-21,Pricing & Value
+R00295,"My Trailhead Backpack 40L arrived two days early, love the great tracking updates throughout.",2026-08-21,Shipping & Delivery
+R00299,"Reached out about my Kestrel Running Shoes and got a thoughtful, fast reply, excellent support.",2026-08-21,Customer Support
+R00293,"My Solace Weighted Blanket arrived two days early, love the great tracking updates throughout.",2026-08-21,Shipping & Delivery
+R00304,"Way too much wasteful plastic packaging for such a small Kestrel Running Shoes, frustrating and awful.",2026-08-21,Packaging
+R00303,"Loved how easy the website made it to compare Solace Weighted Blanket options, fantastic design.",2026-08-21,App / Website UX
+R00301,"The Kestrel Running Shoes feels way overpriced for what you get, terrible value, disappointing.",2026-08-21,Pricing & Value
+R00297,"No one from support followed up on my Solace Weighted Blanket complaint, horrible, worst service.",2026-08-21,Customer Support
+R00298,"Refund for my Verve Standing Desk was processed quickly, amazing quick support chat, thank you.",2026-08-21,Customer Support
+R00302,"Checkout for the Kestrel Running Shoes failed twice before payment went through, horrible broken app.",2026-08-21,App / Website UX
+R00294,"Standard shipping time for the Kestrel Running Shoes, no complaints or praise really.",2026-08-21,Shipping & Delivery
+R00296,"The Trailhead Backpack 40L is decent quality for the price, nothing exceptional.",2026-08-21,Product Quality
+R00311,"Worth every penny — the Nimbus Wireless Earbuds outperforms pricier alternatives, fantastic deal.",2026-08-22,Pricing & Value
+R00312,"The Nimbus Wireless Earbuds came in really nice, sturdy packaging, felt premium and excellent unboxing.",2026-08-22,Packaging
+R00309,"The support agent was rude and dismissive about my Verve Standing Desk, terrible experience.",2026-08-22,Customer Support
+R00310,"Value for the Kestrel Running Shoes is reasonable, not a standout deal either way.",2026-08-22,Pricing & Value
+R00307,"The Trailhead Backpack 40L took about a week to arrive, nothing unusual either way.",2026-08-22,Shipping & Delivery
+R00308,"My Nimbus Wireless Earbuds stopped working entirely, infuriating, clearly a quality control disaster.",2026-08-22,Product Quality
+R00306,"Fast shipping on the Trailhead Backpack 40L — ordered Monday, had it by Wednesday, excellent!",2026-08-22,Shipping & Delivery
+R00313,"The Kestrel Running Shoes came in really nice, sturdy packaging, felt premium and excellent unboxing.",2026-08-22,Packaging
+R00305,"My Kestrel Running Shoes arrived two days early, love the great tracking updates throughout.",2026-08-22,Shipping & Delivery
+R00319,"No one from support followed up on my Solace Weighted Blanket complaint, horrible, worst service.",2026-08-23,Customer Support
+R00314,"Standard shipping time for the Nimbus Wireless Earbuds, no complaints or praise really.",2026-08-23,Shipping & Delivery
+R00315,"Fast shipping on the Verve Standing Desk — ordered Monday, had it by Wednesday, excellent!",2026-08-23,Shipping & Delivery
+R00320,"Price of the Kestrel Running Shoes jumped right after I bought it, infuriating, feels like a ripoff.",2026-08-23,Pricing & Value
+R00317,"No one from support followed up on my Nimbus Wireless Earbuds complaint, horrible, worst service.",2026-08-23,Customer Support
+R00322,"Website was okay for browsing Kestrel Running Shoes options, could be faster.",2026-08-23,App / Website UX
+R00316,"Really impressed with the excellent build quality of the Verve Standing Desk, fantastic daily use.",2026-08-23,Product Quality
+R00318,"Reached out about my Nimbus Wireless Earbuds and got a thoughtful, fast reply, excellent support.",2026-08-23,Customer Support
+R00323,"Way too much wasteful plastic packaging for such a small Aurora Blender X2, frustrating and awful.",2026-08-23,Packaging
+R00321,"The website kept crashing during Trailhead Backpack 40L checkout, awful, so frustrating to deal with.",2026-08-23,App / Website UX
+R00328,"The Trailhead Backpack 40L feels sturdy and well-built, materials are clearly premium, love it.",2026-08-24,Product Quality
+R00330,"No one from support followed up on my Verve Standing Desk complaint, horrible, worst service.",2026-08-24,Customer Support
+R00331,"The app worked fine for ordering the Aurora Blender X2, nothing notable.",2026-08-24,App / Website UX
+R00329,"The support agent was rude and dismissive about my Aurora Blender X2, terrible experience.",2026-08-24,Customer Support
+R00327,"The Solace Weighted Blanket is decent quality for the price, nothing exceptional.",2026-08-24,Product Quality
+R00326,"Shipping took a horrendous 10 weeks for the Aurora Blender X2, completely unacceptable.",2026-08-24,Shipping & Delivery
+R00325,"Awful, my Solace Weighted Blanket never showed up despite tracking saying delivered, absolutely ridiculous.",2026-08-24,Shipping & Delivery
+R00324,"Fast shipping on the Solace Weighted Blanket — ordered Monday, had it by Wednesday, excellent!",2026-08-24,Shipping & Delivery
+R00333,"Delivery was smooth and the Nimbus Wireless Earbuds was packed well, no damage at all, perfect.",2026-08-25,Shipping & Delivery
+R00338,"Packaging for the Aurora Blender X2 was standard, did the job.",2026-08-25,Packaging
+R00337,"App experience for tracking my Verve Standing Desk order was clean and simple, great job.",2026-08-25,App / Website UX
+R00332,"My Kestrel Running Shoes got lost in transit and support was useless, worst delivery experience ever.",2026-08-25,Shipping & Delivery
+R00336,"Tried getting a refund for the Solace Weighted Blanket but support gave the runaround, so frustrating.",2026-08-25,Customer Support
+R00335,"Really impressed with the excellent build quality of the Kestrel Running Shoes, fantastic daily use.",2026-08-25,Product Quality
+R00334,"The Solace Weighted Blanket feels sturdy and well-built, materials are clearly premium, love it.",2026-08-25,Product Quality
+R00342,"Really impressed with the excellent build quality of the Kestrel Running Shoes, fantastic daily use.",2026-08-26,Product Quality
+R00339,"Standard shipping time for the Trailhead Backpack 40L, no complaints or praise really.",2026-08-26,Shipping & Delivery
+R00345,"Support team resolved my Aurora Blender X2 issue within an hour, wonderful, super helpful agent.",2026-08-26,Customer Support
+R00346,"Tried getting a refund for the Trailhead Backpack 40L but support gave the runaround, so frustrating.",2026-08-26,Customer Support
+R00343,"Received a defective Verve Standing Desk — a part was cracked, awful, poor quality control.",2026-08-26,Product Quality
+R00350,"The Trailhead Backpack 40L packaging was flimsy and cheap, item scuffed badly, disappointing.",2026-08-26,Packaging
+R00344,"Support team resolved my Aurora Blender X2 issue within an hour, wonderful, super helpful agent.",2026-08-26,Customer Support
+R00349,"Loved how easy the website made it to compare Solace Weighted Blanket options, fantastic design.",2026-08-26,App / Website UX
+R00340,"My Trailhead Backpack 40L arrived two days early, love the great tracking updates throughout.",2026-08-26,Shipping & Delivery
+R00341,"The Kestrel Running Shoes broke after only 8 days, terrible quality, very disappointing.",2026-08-26,Product Quality
+R00347,"Price of the Solace Weighted Blanket jumped right after I bought it, infuriating, feels like a ripoff.",2026-08-26,Pricing & Value
+R00348,"The checkout for ordering the Verve Standing Desk was smooth and fast, excellent app experience.",2026-08-26,App / Website UX
+R00354,"Refund for my Solace Weighted Blanket was processed quickly, amazing quick support chat, thank you.",2026-08-27,Customer Support
+R00358,"The Aurora Blender X2 came in really nice, sturdy packaging, felt premium and excellent unboxing.",2026-08-27,Packaging
+R00359,"Way too much wasteful plastic packaging for such a small Solace Weighted Blanket, frustrating and awful.",2026-08-27,Packaging
+R00352,"The Solace Weighted Blanket broke after only 4 days, terrible quality, very disappointing.",2026-08-27,Product Quality
+R00355,"Not worth the cost — the Solace Weighted Blanket underdelivers badly, frustrating waste of money.",2026-08-27,Pricing & Value
+R00356,"Not worth the cost — the Kestrel Running Shoes underdelivers badly, frustrating waste of money.",2026-08-27,Pricing & Value
+R00360,"The Verve Standing Desk came in really nice, sturdy packaging, felt premium and excellent unboxing.",2026-08-27,Packaging
+R00353,"Build quality on the Aurora Blender X2 is about what I expected, no surprises.",2026-08-27,Product Quality
+R00351,"My Trailhead Backpack 40L got lost in transit and support was useless, worst delivery experience ever.",2026-08-27,Shipping & Delivery
+R00357,"The website kept crashing during Verve Standing Desk checkout, awful, so frustrating to deal with.",2026-08-27,App / Website UX
+R00362,"The Solace Weighted Blanket feels cheap and flimsy, plastic parts loose already, horrible.",2026-08-28,Product Quality
+R00366,"No one from support followed up on my Nimbus Wireless Earbuds complaint, horrible, worst service.",2026-08-28,Customer Support
+R00363,"Build quality on the Solace Weighted Blanket is about what I expected, no surprises.",2026-08-28,Product Quality
+R00365,"Refund for my Aurora Blender X2 was processed quickly, amazing quick support chat, thank you.",2026-08-28,Customer Support
+R00364,"The Aurora Blender X2 is decent quality for the price, nothing exceptional.",2026-08-28,Product Quality
+R00361,"Fast shipping on the Verve Standing Desk — ordered Monday, had it by Wednesday, excellent!",2026-08-28,Shipping & Delivery
+R00367,"Fast shipping on the Verve Standing Desk — ordered Monday, had it by Wednesday, excellent!",2026-08-29,Shipping & Delivery
+R00371,"Received a defective Aurora Blender X2 — a part was cracked, awful, poor quality control.",2026-08-29,Product Quality
+R00373,"Support answered my Kestrel Running Shoes question, took a couple days but got resolved.",2026-08-29,Customer Support
+R00370,"Received a defective Verve Standing Desk — a part was cracked, awful, poor quality control.",2026-08-29,Product Quality
+R00372,"Customer service for the Kestrel Running Shoes was fine, average response time.",2026-08-29,Customer Support
+R00374,"Worth every penny — the Verve Standing Desk outperforms pricier alternatives, fantastic deal.",2026-08-29,Pricing & Value
+R00368,"Courier left my Verve Standing Desk out in the rain, soaked and damaged, horrible handling.",2026-08-29,Shipping & Delivery
+R00369,"My Kestrel Running Shoes got lost in transit and support was useless, worst delivery experience ever.",2026-08-29,Shipping & Delivery
+R00375,"The box for the Nimbus Wireless Earbuds was crushed, padding shifted everywhere, terrible packaging.",2026-08-29,Packaging
+R00380,"Refund for my Kestrel Running Shoes was processed quickly, amazing quick support chat, thank you.",2026-08-30,Customer Support
+R00384,"Price of the Aurora Blender X2 jumped right after I bought it, infuriating, feels like a ripoff.",2026-08-30,Pricing & Value
+R00389,"The Nimbus Wireless Earbuds came in really nice, sturdy packaging, felt premium and excellent unboxing.",2026-08-30,Packaging
+R00386,"App login bugged out repeatedly while tracking my Kestrel Running Shoes, terrible, infuriating experience.",2026-08-30,App / Website UX
+R00379,"Refund for my Trailhead Backpack 40L was processed quickly, amazing quick support chat, thank you.",2026-08-30,Customer Support
+R00382,"The Kestrel Running Shoes is priced about the same as competitors, fair enough.",2026-08-30,Pricing & Value
+R00376,"Courier left my Nimbus Wireless Earbuds out in the rain, soaked and damaged, horrible handling.",2026-08-30,Shipping & Delivery
+R00387,"Website was okay for browsing Verve Standing Desk options, could be faster.",2026-08-30,App / Website UX
+R00378,"Received a defective Trailhead Backpack 40L — a part was cracked, awful, poor quality control.",2026-08-30,Product Quality
+R00385,"App login bugged out repeatedly while tracking my Verve Standing Desk, terrible, infuriating experience.",2026-08-30,App / Website UX
+R00377,"Awful, my Solace Weighted Blanket never showed up despite tracking saying delivered, absolutely ridiculous.",2026-08-30,Shipping & Delivery
+R00388,"Packaging for the Trailhead Backpack 40L was standard, did the job.",2026-08-30,Packaging
+R00381,"Reached out about my Kestrel Running Shoes and got a thoughtful, fast reply, excellent support.",2026-08-30,Customer Support
+R00383,"Got the Verve Standing Desk on sale and it feels like a steal, amazing value, love it.",2026-08-30,Pricing & Value
+R00394,"No one from support followed up on my Nimbus Wireless Earbuds complaint, horrible, worst service.",2026-08-31,Customer Support
+R00395,"Tried getting a refund for the Nimbus Wireless Earbuds but support gave the runaround, so frustrating.",2026-08-31,Customer Support
+R00392,"The Trailhead Backpack 40L broke after only 5 days, terrible quality, very disappointing.",2026-08-31,Product Quality
+R00391,"Courier left my Solace Weighted Blanket out in the rain, soaked and damaged, horrible handling.",2026-08-31,Shipping & Delivery
+R00397,"Loved how easy the website made it to compare Nimbus Wireless Earbuds options, fantastic design.",2026-08-31,App / Website UX
+R00396,"Value for the Solace Weighted Blanket is reasonable, not a standout deal either way.",2026-08-31,Pricing & Value
+R00390,"Fast shipping on the Trailhead Backpack 40L — ordered Monday, had it by Wednesday, excellent!",2026-08-31,Shipping & Delivery
+R00393,"Build quality on the Solace Weighted Blanket is about what I expected, no surprises.",2026-08-31,Product Quality
+R00398,"Packaging for the Aurora Blender X2 was standard, did the job.",2026-08-31,Packaging
+R00401,"My Trailhead Backpack 40L stopped working entirely, infuriating, clearly a quality control disaster.",2026-09-01,Product Quality
+R00403,"Worth every penny — the Kestrel Running Shoes outperforms pricier alternatives, fantastic deal.",2026-09-01,Pricing & Value
+R00405,"Loved how easy the website made it to compare Kestrel Running Shoes options, fantastic design.",2026-09-01,App / Website UX
+R00406,"The box for the Kestrel Running Shoes was crushed, padding shifted everywhere, terrible packaging.",2026-09-01,Packaging
+R00404,"Price of the Verve Standing Desk jumped right after I bought it, infuriating, feels like a ripoff.",2026-09-01,Pricing & Value
+R00400,"My Nimbus Wireless Earbuds stopped working entirely, infuriating, clearly a quality control disaster.",2026-09-01,Product Quality
+R00402,"Refund for my Trailhead Backpack 40L was processed quickly, amazing quick support chat, thank you.",2026-09-01,Customer Support
+R00399,"Shipping took a horrendous 2 weeks for the Trailhead Backpack 40L, completely unacceptable.",2026-09-01,Shipping & Delivery
+R00413,"Way too much wasteful plastic packaging for such a small Kestrel Running Shoes, frustrating and awful.",2026-09-02,Packaging
+R00409,"The Verve Standing Desk is durable and hasn't shown any wear, great quality, highly satisfied.",2026-09-02,Product Quality
+R00411,"Support team resolved my Solace Weighted Blanket issue within an hour, wonderful, super helpful agent.",2026-09-02,Customer Support
+R00407,"Delivery was smooth and the Solace Weighted Blanket was packed well, no damage at all, perfect.",2026-09-02,Shipping & Delivery
+R00410,"Build quality on the Verve Standing Desk is about what I expected, no surprises.",2026-09-02,Product Quality
+R00412,"Price of the Verve Standing Desk jumped right after I bought it, infuriating, feels like a ripoff.",2026-09-02,Pricing & Value
+R00408,"Fast shipping on the Trailhead Backpack 40L — ordered Monday, had it by Wednesday, excellent!",2026-09-02,Shipping & Delivery
+R00415,"My Nimbus Wireless Earbuds arrived two days early, love the great tracking updates throughout.",2026-09-03,Shipping & Delivery
+R00417,"No one from support followed up on my Verve Standing Desk complaint, horrible, worst service.",2026-09-03,Customer Support
+R00414,"Courier was friendly and the Nimbus Wireless Earbuds showed up right on schedule, wonderful service.",2026-09-03,Shipping & Delivery
+R00416,"Really impressed with the excellent build quality of the Nimbus Wireless Earbuds, fantastic daily use.",2026-09-03,Product Quality
+R00418,"Website was okay for browsing Kestrel Running Shoes options, could be faster.",2026-09-03,App / Website UX
+R00424,"The Trailhead Backpack 40L packaging was flimsy and cheap, item scuffed badly, disappointing.",2026-09-04,Packaging
+R00421,"The Trailhead Backpack 40L feels sturdy and well-built, materials are clearly premium, love it.",2026-09-04,Product Quality
+R00420,"Courier left my Kestrel Running Shoes out in the rain, soaked and damaged, horrible handling.",2026-09-04,Shipping & Delivery
+R00423,"Customer service for the Trailhead Backpack 40L was fine, average response time.",2026-09-04,Customer Support
+R00419,"Courier left my Kestrel Running Shoes out in the rain, soaked and damaged, horrible handling.",2026-09-04,Shipping & Delivery
+R00422,"Really impressed with the excellent build quality of the Trailhead Backpack 40L, fantastic daily use.",2026-09-04,Product Quality
+R00432,"Not worth the cost — the Solace Weighted Blanket underdelivers badly, frustrating waste of money.",2026-09-05,Pricing & Value
+R00428,"The Nimbus Wireless Earbuds is decent quality for the price, nothing exceptional.",2026-09-05,Product Quality
+R00433,"The checkout for ordering the Aurora Blender X2 was smooth and fast, excellent app experience.",2026-09-05,App / Website UX
+R00426,"Awful, my Nimbus Wireless Earbuds never showed up despite tracking saying delivered, absolutely ridiculous.",2026-09-05,Shipping & Delivery
+R00427,"The Nimbus Wireless Earbuds feels cheap and flimsy, plastic parts loose already, horrible.",2026-09-05,Product Quality
+R00430,"Customer support never responded about my Verve Standing Desk issue, waited 4 days, awful.",2026-09-05,Customer Support
+R00425,"Courier left my Solace Weighted Blanket out in the rain, soaked and damaged, horrible handling.",2026-09-05,Shipping & Delivery
+R00431,"Refund for my Nimbus Wireless Earbuds was processed quickly, amazing quick support chat, thank you.",2026-09-05,Customer Support
+R00429,"Received a defective Verve Standing Desk — a part was cracked, awful, poor quality control.",2026-09-05,Product Quality
+R00443,"The Nimbus Wireless Earbuds came in really nice, sturdy packaging, felt premium and excellent unboxing.",2026-09-06,Packaging
+R00437,"Reached out about my Trailhead Backpack 40L and got a thoughtful, fast reply, excellent support.",2026-09-06,Customer Support
+R00439,"Support team resolved my Trailhead Backpack 40L issue within an hour, wonderful, super helpful agent.",2026-09-06,Customer Support
+R00438,"No one from support followed up on my Nimbus Wireless Earbuds complaint, horrible, worst service.",2026-09-06,Customer Support
+R00436,"The Trailhead Backpack 40L is durable and hasn't shown any wear, great quality, highly satisfied.",2026-09-06,Product Quality
+R00435,"The Solace Weighted Blanket broke after only 12 days, terrible quality, very disappointing.",2026-09-06,Product Quality
+R00441,"App experience for tracking my Nimbus Wireless Earbuds order was clean and simple, great job.",2026-09-06,App / Website UX
+R00442,"Website was okay for browsing Solace Weighted Blanket options, could be faster.",2026-09-06,App / Website UX
+R00434,"Awful, my Solace Weighted Blanket never showed up despite tracking saying delivered, absolutely ridiculous.",2026-09-06,Shipping & Delivery
+R00440,"Price of the Trailhead Backpack 40L jumped right after I bought it, infuriating, feels like a ripoff.",2026-09-06,Pricing & Value
+R00449,"The Solace Weighted Blanket is a great value for the price, excellent, would buy again happily.",2026-09-07,Pricing & Value
+R00447,"Reached out about my Verve Standing Desk and got a thoughtful, fast reply, excellent support.",2026-09-07,Customer Support
+R00446,"Really impressed with the excellent build quality of the Verve Standing Desk, fantastic daily use.",2026-09-07,Product Quality
+R00451,"Way too much wasteful plastic packaging for such a small Kestrel Running Shoes, frustrating and awful.",2026-09-07,Packaging
+R00450,"Packaging on the Kestrel Running Shoes was eco-friendly and protective, wonderful, well done.",2026-09-07,Packaging
+R00445,"The Trailhead Backpack 40L feels cheap and flimsy, plastic parts loose already, horrible.",2026-09-07,Product Quality
+R00448,"Tried getting a refund for the Trailhead Backpack 40L but support gave the runaround, so frustrating.",2026-09-07,Customer Support
+R00444,"Courier was friendly and the Nimbus Wireless Earbuds showed up right on schedule, wonderful service.",2026-09-07,Shipping & Delivery
+R00457,"App login bugged out repeatedly while tracking my Trailhead Backpack 40L, terrible, infuriating experience.",2026-09-08,App / Website UX
+R00454,"My Aurora Blender X2 stopped working entirely, infuriating, clearly a quality control disaster.",2026-09-08,Product Quality
+R00455,"No one from support followed up on my Aurora Blender X2 complaint, horrible, worst service.",2026-09-08,Customer Support
+R00459,"The Kestrel Running Shoes came in really nice, sturdy packaging, felt premium and excellent unboxing.",2026-09-08,Packaging
+R00456,"Website was okay for browsing Verve Standing Desk options, could be faster.",2026-09-08,App / Website UX
+R00453,"The Nimbus Wireless Earbuds is decent quality for the price, nothing exceptional.",2026-09-08,Product Quality
+R00452,"My Aurora Blender X2 arrived two days early, love the great tracking updates throughout.",2026-09-08,Shipping & Delivery
+R00458,"Way too much wasteful plastic packaging for such a small Aurora Blender X2, frustrating and awful.",2026-09-08,Packaging
+R00464,"The Aurora Blender X2 feels cheap and flimsy, plastic parts loose already, horrible.",2026-09-09,Product Quality
+R00465,"Support team resolved my Aurora Blender X2 issue within an hour, wonderful, super helpful agent.",2026-09-09,Customer Support
+R00470,"The Aurora Blender X2 came in really nice, sturdy packaging, felt premium and excellent unboxing.",2026-09-09,Packaging
+R00466,"No one from support followed up on my Verve Standing Desk complaint, horrible, worst service.",2026-09-09,Customer Support
+R00468,"Checkout for the Aurora Blender X2 failed twice before payment went through, horrible broken app.",2026-09-09,App / Website UX
+R00460,"Terrible delivery experience — my Trailhead Backpack 40L was delayed 10 days with zero updates, so frustrating.",2026-09-09,Shipping & Delivery
+R00467,"The Nimbus Wireless Earbuds is priced about the same as competitors, fair enough.",2026-09-09,Pricing & Value
+R00463,"The Verve Standing Desk is durable and hasn't shown any wear, great quality, highly satisfied.",2026-09-09,Product Quality
+R00462,"Courier was friendly and the Solace Weighted Blanket showed up right on schedule, wonderful service.",2026-09-09,Shipping & Delivery
+R00469,"The Kestrel Running Shoes packaging was flimsy and cheap, item scuffed badly, disappointing.",2026-09-09,Packaging
+R00461,"Fast shipping on the Verve Standing Desk — ordered Monday, had it by Wednesday, excellent!",2026-09-09,Shipping & Delivery
+R00475,"The support agent was rude and dismissive about my Solace Weighted Blanket, terrible experience.",2026-09-10,Customer Support
+R00473,"The Nimbus Wireless Earbuds broke after only 6 days, terrible quality, very disappointing.",2026-09-10,Product Quality
+R00477,"Value for the Kestrel Running Shoes is reasonable, not a standout deal either way.",2026-09-10,Pricing & Value
+R00478,"Worth every penny — the Verve Standing Desk outperforms pricier alternatives, fantastic deal.",2026-09-10,Pricing & Value
+R00471,"Awful, my Verve Standing Desk never showed up despite tracking saying delivered, absolutely ridiculous.",2026-09-10,Shipping & Delivery
+R00472,"The Kestrel Running Shoes feels sturdy and well-built, materials are clearly premium, love it.",2026-09-10,Product Quality
+R00474,"Customer service for the Nimbus Wireless Earbuds was fine, average response time.",2026-09-10,Customer Support
+R00476,"Got the Kestrel Running Shoes on sale and it feels like a steal, amazing value, love it.",2026-09-10,Pricing & Value
+R00479,"The checkout for ordering the Trailhead Backpack 40L was smooth and fast, excellent app experience.",2026-09-10,App / Website UX
+R00481,"Terrible delivery experience — my Kestrel Running Shoes was delayed 10 days with zero updates, so frustrating.",2026-09-11,Shipping & Delivery
+R00483,"Courier left my Nimbus Wireless Earbuds out in the rain, soaked and damaged, horrible handling.",2026-09-11,Shipping & Delivery
+R00487,"Received a defective Solace Weighted Blanket — a part was cracked, awful, poor quality control.",2026-09-11,Product Quality
+R00484,"Shipping took a horrendous 3 weeks for the Trailhead Backpack 40L, completely unacceptable.",2026-09-11,Shipping & Delivery
+R00489,"Support team resolved my Verve Standing Desk issue within an hour, wonderful, super helpful agent.",2026-09-11,Customer Support
+R00486,"My Kestrel Running Shoes got lost in transit and support was useless, worst delivery experience ever.",2026-09-11,Shipping & Delivery
+R00490,"Price of the Kestrel Running Shoes jumped right after I bought it, infuriating, feels like a ripoff.",2026-09-11,Pricing & Value
+R00480,"The Trailhead Backpack 40L took about a week to arrive, nothing unusual either way.",2026-09-11,Shipping & Delivery
+R00491,"Packaging on the Solace Weighted Blanket was eco-friendly and protective, wonderful, well done.",2026-09-11,Packaging
+R00482,"My Kestrel Running Shoes got lost in transit and support was useless, worst delivery experience ever.",2026-09-11,Shipping & Delivery
+R00485,"Awful, my Aurora Blender X2 never showed up despite tracking saying delivered, absolutely ridiculous.",2026-09-11,Shipping & Delivery
+R00488,"The Trailhead Backpack 40L feels cheap and flimsy, plastic parts loose already, horrible.",2026-09-11,Product Quality
+R00500,"Got the Verve Standing Desk on sale and it feels like a steal, amazing value, love it.",2026-09-12,Pricing & Value
+R00493,"Courier was friendly and the Trailhead Backpack 40L showed up right on schedule, wonderful service.",2026-09-12,Shipping & Delivery
+R00495,"Terrible delivery experience — my Trailhead Backpack 40L was delayed 10 days with zero updates, so frustrating.",2026-09-12,Shipping & Delivery
+R00498,"Really impressed with the excellent build quality of the Verve Standing Desk, fantastic daily use.",2026-09-12,Product Quality
+R00501,"The Aurora Blender X2 came in really nice, sturdy packaging, felt premium and excellent unboxing.",2026-09-12,Packaging
+R00492,"My Solace Weighted Blanket got lost in transit and support was useless, worst delivery experience ever.",2026-09-12,Shipping & Delivery
+R00497,"The Solace Weighted Blanket feels sturdy and well-built, materials are clearly premium, love it.",2026-09-12,Product Quality
+R00496,"Awful, my Trailhead Backpack 40L never showed up despite tracking saying delivered, absolutely ridiculous.",2026-09-12,Shipping & Delivery
+R00494,"Shipping took a horrendous 5 weeks for the Aurora Blender X2, completely unacceptable.",2026-09-12,Shipping & Delivery
+R00499,"The Verve Standing Desk is a great value for the price, excellent, would buy again happily.",2026-09-12,Pricing & Value
+R00510,"Received a defective Trailhead Backpack 40L — a part was cracked, awful, poor quality control.",2026-09-13,Product Quality
+R00512,"The checkout for ordering the Verve Standing Desk was smooth and fast, excellent app experience.",2026-09-13,App / Website UX
+R00513,"Loved how easy the website made it to compare Verve Standing Desk options, fantastic design.",2026-09-13,App / Website UX
+R00511,"Customer support never responded about my Aurora Blender X2 issue, waited 10 days, awful.",2026-09-13,Customer Support
+R00509,"My Kestrel Running Shoes stopped working entirely, infuriating, clearly a quality control disaster.",2026-09-13,Product Quality
+R00503,"Courier left my Aurora Blender X2 out in the rain, soaked and damaged, horrible handling.",2026-09-13,Shipping & Delivery
+R00506,"Courier was friendly and the Nimbus Wireless Earbuds showed up right on schedule, wonderful service.",2026-09-13,Shipping & Delivery
+R00505,"Delivery was smooth and the Kestrel Running Shoes was packed well, no damage at all, perfect.",2026-09-13,Shipping & Delivery
+R00508,"Standard shipping time for the Trailhead Backpack 40L, no complaints or praise really.",2026-09-13,Shipping & Delivery
+R00507,"My Nimbus Wireless Earbuds got lost in transit and support was useless, worst delivery experience ever.",2026-09-13,Shipping & Delivery
+R00504,"Terrible delivery experience — my Aurora Blender X2 was delayed 10 days with zero updates, so frustrating.",2026-09-13,Shipping & Delivery
+R00502,"Fast shipping on the Aurora Blender X2 — ordered Monday, had it by Wednesday, excellent!",2026-09-13,Shipping & Delivery
+R00525,"Reached out about my Solace Weighted Blanket and got a thoughtful, fast reply, excellent support.",2026-09-14,Customer Support
+R00518,"Shipping took a horrendous 6 weeks for the Aurora Blender X2, completely unacceptable.",2026-09-14,Shipping & Delivery
+R00519,"The Kestrel Running Shoes took about a week to arrive, nothing unusual either way.",2026-09-14,Shipping & Delivery
+R00514,"Fast shipping on the Verve Standing Desk — ordered Monday, had it by Wednesday, excellent!",2026-09-14,Shipping & Delivery
+R00520,"My Trailhead Backpack 40L got lost in transit and support was useless, worst delivery experience ever.",2026-09-14,Shipping & Delivery
+R00522,"Build quality on the Aurora Blender X2 is about what I expected, no surprises.",2026-09-14,Product Quality
+R00517,"Standard shipping time for the Aurora Blender X2, no complaints or praise really.",2026-09-14,Shipping & Delivery
+R00521,"Received a defective Verve Standing Desk — a part was cracked, awful, poor quality control.",2026-09-14,Product Quality
+R00516,"My Verve Standing Desk got lost in transit and support was useless, worst delivery experience ever.",2026-09-14,Shipping & Delivery
+R00527,"The checkout for ordering the Aurora Blender X2 was smooth and fast, excellent app experience.",2026-09-14,App / Website UX
+R00515,"Terrible delivery experience — my Verve Standing Desk was delayed 6 days with zero updates, so frustrating.",2026-09-14,Shipping & Delivery
+R00526,"Price of the Solace Weighted Blanket jumped right after I bought it, infuriating, feels like a ripoff.",2026-09-14,Pricing & Value
+R00523,"The Trailhead Backpack 40L feels sturdy and well-built, materials are clearly premium, love it.",2026-09-14,Product Quality
+R00524,"Customer service for the Solace Weighted Blanket was fine, average response time.",2026-09-14,Customer Support
+R00528,"Shipping took a horrendous 8 weeks for the Trailhead Backpack 40L, completely unacceptable.",2026-09-15,Shipping & Delivery
+R00538,"Price of the Verve Standing Desk jumped right after I bought it, infuriating, feels like a ripoff.",2026-09-15,Pricing & Value
+R00529,"The Trailhead Backpack 40L took about a week to arrive, nothing unusual either way.",2026-09-15,Shipping & Delivery
+R00534,"Shipping took a horrendous 5 weeks for the Aurora Blender X2, completely unacceptable.",2026-09-15,Shipping & Delivery
+R00539,"Packaging on the Aurora Blender X2 was eco-friendly and protective, wonderful, well done.",2026-09-15,Packaging
+R00533,"Courier left my Solace Weighted Blanket out in the rain, soaked and damaged, horrible handling.",2026-09-15,Shipping & Delivery
+R00531,"Courier was friendly and the Solace Weighted Blanket showed up right on schedule, wonderful service.",2026-09-15,Shipping & Delivery
+R00535,"The Trailhead Backpack 40L feels sturdy and well-built, materials are clearly premium, love it.",2026-09-15,Product Quality
+R00532,"The Trailhead Backpack 40L took about a week to arrive, nothing unusual either way.",2026-09-15,Shipping & Delivery
+R00530,"Courier left my Aurora Blender X2 out in the rain, soaked and damaged, horrible handling.",2026-09-15,Shipping & Delivery
+R00536,"The Aurora Blender X2 feels sturdy and well-built, materials are clearly premium, love it.",2026-09-15,Product Quality
+R00537,"Reached out about my Trailhead Backpack 40L and got a thoughtful, fast reply, excellent support.",2026-09-15,Customer Support
+R00549,"Reached out about my Nimbus Wireless Earbuds and got a thoughtful, fast reply, excellent support.",2026-09-16,Customer Support
+R00553,"The checkout for ordering the Verve Standing Desk was smooth and fast, excellent app experience.",2026-09-16,App / Website UX
+R00543,"Standard shipping time for the Trailhead Backpack 40L, no complaints or praise really.",2026-09-16,Shipping & Delivery
+R00540,"Courier left my Solace Weighted Blanket out in the rain, soaked and damaged, horrible handling.",2026-09-16,Shipping & Delivery
+R00542,"Awful, my Solace Weighted Blanket never showed up despite tracking saying delivered, absolutely ridiculous.",2026-09-16,Shipping & Delivery
+R00554,"The Kestrel Running Shoes came in really nice, sturdy packaging, felt premium and excellent unboxing.",2026-09-16,Packaging
+R00552,"Website was okay for browsing Verve Standing Desk options, could be faster.",2026-09-16,App / Website UX
+R00547,"The Verve Standing Desk broke after only 12 days, terrible quality, very disappointing.",2026-09-16,Product Quality
+R00544,"Shipping took a horrendous 5 weeks for the Kestrel Running Shoes, completely unacceptable.",2026-09-16,Shipping & Delivery
+R00555,"The Solace Weighted Blanket packaging was flimsy and cheap, item scuffed badly, disappointing.",2026-09-16,Packaging
+R00548,"Customer support never responded about my Solace Weighted Blanket issue, waited 12 days, awful.",2026-09-16,Customer Support
+R00545,"Really impressed with the excellent build quality of the Solace Weighted Blanket, fantastic daily use.",2026-09-16,Product Quality
+R00546,"The Nimbus Wireless Earbuds is durable and hasn't shown any wear, great quality, highly satisfied.",2026-09-16,Product Quality
+R00551,"Website was okay for browsing Kestrel Running Shoes options, could be faster.",2026-09-16,App / Website UX
+R00541,"My Nimbus Wireless Earbuds got lost in transit and support was useless, worst delivery experience ever.",2026-09-16,Shipping & Delivery
+R00550,"Price of the Solace Weighted Blanket jumped right after I bought it, infuriating, feels like a ripoff.",2026-09-16,Pricing & Value
+R00563,"Reached out about my Verve Standing Desk and got a thoughtful, fast reply, excellent support.",2026-09-17,Customer Support
+R00557,"Shipping took a horrendous 4 weeks for the Solace Weighted Blanket, completely unacceptable.",2026-09-17,Shipping & Delivery
+R00564,"The support agent was rude and dismissive about my Verve Standing Desk, terrible experience.",2026-09-17,Customer Support
+R00559,"Terrible delivery experience — my Aurora Blender X2 was delayed 4 days with zero updates, so frustrating.",2026-09-17,Shipping & Delivery
+R00566,"Packaging on the Solace Weighted Blanket was eco-friendly and protective, wonderful, well done.",2026-09-17,Packaging
+R00565,"Loved how easy the website made it to compare Solace Weighted Blanket options, fantastic design.",2026-09-17,App / Website UX
+R00558,"Terrible delivery experience — my Solace Weighted Blanket was delayed 3 days with zero updates, so frustrating.",2026-09-17,Shipping & Delivery
+R00560,"Courier left my Solace Weighted Blanket out in the rain, soaked and damaged, horrible handling.",2026-09-17,Shipping & Delivery
+R00561,"Courier left my Solace Weighted Blanket out in the rain, soaked and damaged, horrible handling.",2026-09-17,Shipping & Delivery
+R00562,"Really impressed with the excellent build quality of the Aurora Blender X2, fantastic daily use.",2026-09-17,Product Quality
+R00556,"My Kestrel Running Shoes got lost in transit and support was useless, worst delivery experience ever.",2026-09-17,Shipping & Delivery

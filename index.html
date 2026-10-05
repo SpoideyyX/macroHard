@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Review Sentiment & Topic Analysis</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#0284c7',
+              600: '#0369a1',
+              700: '#075985',
+              900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    code, pre {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    /* Smooth transitions */
+    .tab-btn.active {
+      border-bottom: 2px solid #0284c7;
+      color: #0284c7;
+      font-weight: 600;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background-color: #cbd5e1;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+  <!-- Top Navigation Header -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        
+        <!-- Logo & Title -->
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-sky-500/20">
+            <i data-lucide="scan-face" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <div class="flex items-center space-x-2">
+              <h1 class="text-lg font-bold text-slate-900 tracking-tight">ReviewIQ</h1>
+              <span class="px-2 py-0.5 text-xs font-semibold bg-sky-100 text-sky-800 rounded-full border border-sky-200">v2.4 PowerBI Ready</span>
+            </div>
+            <p class="text-xs text-slate-500">Sentiment Scoring &amp; Governed Taxonomy Topic Modeling</p>
+          </div>
+        </div>
+
+        <!-- Connection & Engine Status Indicators -->
+        <div class="flex items-center space-x-3">
+          <div id="backend-status-pill" class="flex items-center space-x-2 px-3 py-1.5 rounded-full text-xs font-medium bg-amber-50 text-amber-700 border border-amber-200">
+            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+            <span id="backend-status-text">Checking API...</span>
+          </div>
+
+          <div class="hidden sm:flex items-center space-x-2 bg-slate-100 p-1 rounded-lg border border-slate-200 text-xs">
+            <span class="text-slate-500 px-2 font-medium">Engine:</span>
+            <select id="engine-select" class="bg-white border-0 py-1 px-2.5 rounded-md font-semibold text-slate-700 shadow-sm focus:ring-2 focus:ring-sky-500 text-xs cursor-pointer">
+              <option value="vader">VADER (Local Baseline)</option>
+              <option value="azure">Azure AI Language</option>
+            </select>
+          </div>
+
+          <button onclick="loadSampleDataset('ecommerce')" class="flex items-center space-x-1.5 bg-sky-600 hover:bg-sky-700 text-white text-xs font-medium py-2 px-3 rounded-lg shadow-sm transition">
+            <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+            <span>Reset Demo</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="flex space-x-8 -mb-px border-t border-slate-100 text-sm">
+        <button onclick="switchTab('overview')" id="tab-overview" class="tab-btn active py-3 px-1 border-b-2 font-medium text-slate-600 hover:text-slate-900 flex items-center space-x-2">
+          <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+          <span>Analytics Dashboard</span>
+        </button>
+        <button onclick="switchTab('single')" id="tab-single" class="tab-btn py-3 px-1 border-b-2 border-transparent font-medium text-slate-600 hover:text-slate-900 flex items-center space-x-2">
+          <i data-lucide="sparkles" class="w-4 h-4"></i>
+          <span>Single Review Tester</span>
+        </button>
+        <button onclick="switchTab('batch')" id="tab-batch" class="tab-btn py-3 px-1 border-b-2 border-transparent font-medium text-slate-600 hover:text-slate-900 flex items-center space-x-2">
+          <i data-lucide="table" class="w-4 h-4"></i>
+          <span>Batch Data Explorer</span>
+          <span id="batch-counter-badge" class="bg-slate-200 text-slate-700 text-xs px-2 py-0.2 rounded-full">0</span>
+        </button>
+        <button onclick="switchTab('taxonomy')" id="tab-taxonomy" class="tab-btn py-3 px-1 border-b-2 border-transparent font-medium text-slate-600 hover:text-slate-900 flex items-center space-x-2">
+          <i data-lucide="tags" class="w-4 h-4"></i>
+          <span>Taxonomy &amp; Mapping</span>
+        </button>
+        <a href="executive_dashboard.html" class="py-3 px-2 font-medium text-sky-600 hover:text-sky-700 flex items-center space-x-1.5 ml-auto text-xs bg-sky-50 my-auto rounded-lg border border-sky-200">
+          <i data-lucide="line-chart" class="w-3.5 h-3.5"></i>
+          <span class="font-semibold">Executive Dashboard</span>
+          <span class="text-[10px] bg-sky-600 text-white px-1.5 py-0.2 rounded font-bold">NEW</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full">
+
+    <!-- ========================================================================= -->
+    <!-- TAB 1: OVERVIEW DASHBOARD -->
+    <!-- ========================================================================= -->
+    <div id="view-overview" class="tab-view space-y-6">
+      
+      <!-- Metrics Overview Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <!-- Total Reviews -->
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Total Analyzed</p>
+            <h3 id="stat-total" class="text-2xl font-bold text-slate-800 mt-1">0</h3>
+            <p class="text-xs text-slate-500 mt-1 flex items-center space-x-1">
+              <span class="text-emerald-600 font-semibold">100%</span>
+              <span>scrubbed pipeline</span>
+            </p>
+          </div>
+          <div class="w-12 h-12 bg-sky-50 text-sky-600 rounded-xl flex items-center justify-center">
+            <i data-lucide="message-square" class="w-6 h-6"></i>
+          </div>
+        </div>
+
+        <!-- Net Sentiment Score -->
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Net Sentiment Score</p>
+            <div class="flex items-baseline space-x-2 mt-1">
+              <h3 id="stat-compound-avg" class="text-2xl font-bold text-slate-800">+0.00</h3>
+              <span id="stat-sentiment-badge" class="px-2 py-0.5 text-xs font-semibold rounded-md bg-slate-100 text-slate-700">Neutral</span>
+            </div>
+            <p class="text-xs text-slate-400 mt-1">Compound metric: [-1.00 to +1.00]</p>
+          </div>
+          <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center">
+            <i data-lucide="gauge" class="w-6 h-6"></i>
+          </div>
+        </div>
+
+        <!-- Negative Issue Rate -->
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Negative Sentiment Rate</p>
+            <h3 id="stat-negative-rate" class="text-2xl font-bold text-rose-600 mt-1">0.0%</h3>
+            <p id="stat-breakdown-sub" class="text-xs text-slate-500 mt-1">0 pos / 0 neu / 0 neg</p>
+          </div>
+          <div class="w-12 h-12 bg-rose-50 text-rose-600 rounded-xl flex items-center justify-center">
+            <i data-lucide="alert-triangle" class="w-6 h-6"></i>
+          </div>
+        </div>
+
+        <!-- Top Issue Area -->
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Dominant Product Area</p>
+            <h3 id="stat-top-area" class="text-lg font-bold text-slate-800 mt-1 truncate max-w-[170px]">-</h3>
+            <p class="text-xs text-slate-500 mt-1">Governed taxonomy focus</p>
+          </div>
+          <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center">
+            <i data-lucide="layers" class="w-6 h-6"></i>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Charts Section -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Chart 1: Sentiment Polarity Donut -->
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <h2 class="text-sm font-bold text-slate-900">Sentiment Distribution</h2>
+              <p class="text-xs text-slate-500">Positive, Neutral, vs Negative split</p>
+            </div>
+            <span class="text-xs px-2 py-1 bg-slate-100 rounded text-slate-600 font-medium">VADER Threshold</span>
+          </div>
+          <div class="relative flex-1 flex items-center justify-center min-h-[240px]">
+            <canvas id="chart-sentiment-donut"></canvas>
+          </div>
+          <div class="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-slate-100 text-center">
+            <div>
+              <span class="text-xs font-medium text-emerald-600 block">Positive</span>
+              <span id="donut-pos-val" class="text-base font-bold text-slate-800">0</span>
+            </div>
+            <div>
+              <span class="text-xs font-medium text-slate-500 block">Neutral</span>
+              <span id="donut-neu-val" class="text-base font-bold text-slate-800">0</span>
+            </div>
+            <div>
+              <span class="text-xs font-medium text-rose-600 block">Negative</span>
+              <span id="donut-neg-val" class="text-base font-bold text-slate-800">0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chart 2: Product Area Stacked Sentiment -->
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm lg:col-span-2 flex flex-col">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <h2 class="text-sm font-bold text-slate-900">Sentiment by Governed Product Area</h2>
+              <p class="text-xs text-slate-500">Business taxonomy breakdown with sentiment distribution</p>
+            </div>
+            <span class="text-xs text-slate-400">Power BI Dimension Slicing</span>
+          </div>
+          <div class="flex-1 min-h-[260px]">
+            <canvas id="chart-area-bar"></canvas>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Topic Keywords Cloud & Executive Insights -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Discovered Topic Keywords -->
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm lg:col-span-2">
+          <div class="flex items-center justify-between mb-3">
+            <div>
+              <h2 class="text-sm font-bold text-slate-900">Top Discovered Topic Keywords</h2>
+              <p class="text-xs text-slate-500">Extracted terms feeding the governed taxonomy mapping algorithm</p>
+            </div>
+            <i data-lucide="tag" class="w-4 h-4 text-slate-400"></i>
+          </div>
+          <div id="keyword-cloud-container" class="flex flex-wrap gap-2 py-2 min-h-[100px]">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Pipeline Architecture Card -->
+        <div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white p-6 rounded-xl shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center space-x-2 text-sky-400 text-xs font-semibold uppercase tracking-wider mb-2">
+              <i data-lucide="cpu" class="w-4 h-4"></i>
+              <span>Pipeline Architecture</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Dual-Engine &amp; Governed Mapping</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+              Raw customer reviews are scored via pluggable engines (local VADER or Azure AI Language) and clustered into ML topics (BERTopic / LDA) mapped onto fixed enterprise product dimensions for seamless Power BI slicing.
+            </p>
+            <div class="space-y-2 text-xs">
+              <div class="flex items-center justify-between p-2 rounded bg-slate-800/80 border border-slate-700">
+                <span class="text-slate-400">Sentiment Engine</span>
+                <span class="font-mono text-sky-300">VADER / Azure AI</span>
+              </div>
+              <div class="flex items-center justify-between p-2 rounded bg-slate-800/80 border border-slate-700">
+                <span class="text-slate-400">Topic Extractor</span>
+                <span class="font-mono text-sky-300">BERTopic / Sklearn LDA</span>
+              </div>
+              <div class="flex items-center justify-between p-2 rounded bg-slate-800/80 border border-slate-700">
+                <span class="text-slate-400">Taxonomy Target</span>
+                <span class="font-mono text-sky-300">6 Business Dimensions</span>
+              </div>
+            </div>
+          </div>
+          <button onclick="switchTab('single')" class="mt-4 w-full py-2 bg-sky-500 hover:bg-sky-600 text-white rounded-lg text-xs font-semibold transition text-center shadow-md">
+            Test a Review Live &rarr;
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 2: AD-HOC SINGLE REVIEW TESTER -->
+    <!-- ========================================================================= -->
+    <div id="view-single" class="tab-view hidden space-y-6">
+      
+      <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h2 class="text-base font-bold text-slate-900">Real-Time Review Analyzer</h2>
+            <p class="text-xs text-slate-500">Test individual scrubbed customer reviews to inspect sentiment compound scores, confidence, and taxonomy mapping.</p>
+          </div>
+          <span class="text-xs font-semibold px-2.5 py-1 bg-sky-50 text-sky-700 rounded-md border border-sky-200">
+            Interactive Testbench
+          </span>
+        </div>
+
+        <!-- Sample quick-fill buttons -->
+        <div class="mb-4">
+          <label class="block text-xs font-semibold text-slate-600 mb-2">Try Preset Feedback Examples:</label>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <button onclick="fillSample('The delivery was three weeks late and customer support never replied to my refund inquiry.')" class="px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 transition">
+              📦 Late delivery + no support
+            </button>
+            <button onclick="fillSample('Great durable quality for the price, premium materials and fast shipping. Highly recommend!')" class="px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 transition">
+              ⭐ Quality &amp; value positive
+            </button>
+            <button onclick="fillSample('The app crashed twice during checkout and the login screen is full of bugs.')" class="px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 transition">
+              📱 App UX bug &amp; crash
+            </button>
+            <button onclick="fillSample('The packaging box was torn open and the seal was completely damaged.')" class="px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 transition">
+              🏷️ Damaged packaging
+            </button>
+            <button onclick="fillSample('Way overpriced for cheap plastic, definitely not worth the discount price.')" class="px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 transition">
+              💰 Overpriced / low value
+            </button>
+          </div>
+        </div>
+
+        <!-- Textarea Input -->
+        <div class="space-y-3">
+          <div class="relative">
+            <textarea id="single-input-text" rows="4" class="w-full p-4 border border-slate-200 rounded-xl focus:ring-2 focus:ring-sky-500 focus:border-sky-500 text-sm text-slate-800 placeholder-slate-400 outline-none transition" placeholder="Paste or type scrubbed customer review here..."></textarea>
+            <button onclick="clearSingleInput()" class="absolute top-3 right-3 text-slate-400 hover:text-slate-600 text-xs">Clear</button>
+          </div>
+
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-slate-400" id="single-char-count">0 characters</span>
+            <div class="flex space-x-2">
+              <button onclick="analyzeSingleReview()" id="btn-analyze-single" class="px-5 py-2.5 bg-sky-600 hover:bg-sky-700 text-white rounded-lg text-sm font-semibold flex items-center space-x-2 shadow-sm transition">
+                <i data-lucide="zap" class="w-4 h-4"></i>
+                <span>Analyze Text</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Analysis Results Card -->
+      <div id="single-result-card" class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+          <div class="flex items-center space-x-3">
+            <span id="single-sentiment-badge" class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-slate-100 text-slate-700">
+              Awaiting Input
+            </span>
+            <span id="single-sentiment-label-text" class="text-sm font-medium text-slate-500">Run an analysis to view metrics</span>
+          </div>
+          <span class="text-xs text-slate-400 font-mono" id="single-engine-used">VaderSentimentEngine</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Compound Score Gauge -->
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-xs font-semibold text-slate-500">Compound Score</span>
+              <span id="single-score-val" class="text-lg font-bold text-slate-800">0.00</span>
+            </div>
+            <!-- Range bar [-1 to 1] -->
+            <div class="h-3 w-full bg-slate-200 rounded-full overflow-hidden relative">
+              <div class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-slate-400 z-10"></div>
+              <div id="single-score-bar" class="h-full bg-sky-500 transition-all duration-300" style="width: 50%; margin-left: 0%;"></div>
+            </div>
+            <div class="flex justify-between text-[10px] text-slate-400 mt-1 font-mono">
+              <span>-1.0 (Neg)</span>
+              <span>0.0</span>
+              <span>+1.0 (Pos)</span>
+            </div>
+          </div>
+
+          <!-- Confidence Meter -->
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-xs font-semibold text-slate-500">Confidence Metric</span>
+              <span id="single-conf-val" class="text-lg font-bold text-slate-800">0%</span>
+            </div>
+            <div class="h-3 w-full bg-slate-200 rounded-full overflow-hidden">
+              <div id="single-conf-bar" class="h-full bg-emerald-500 transition-all duration-300" style="width: 0%"></div>
+            </div>
+            <div class="flex justify-between text-[10px] text-slate-400 mt-1 font-mono">
+              <span>0% Low</span>
+              <span>100% High</span>
+            </div>
+          </div>
+
+          <!-- Governed Product Area -->
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+            <span class="text-xs font-semibold text-slate-500 block mb-1">Governed Product Area</span>
+            <div id="single-area-badge" class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-sm font-semibold bg-sky-100 text-sky-800 border border-sky-200 mt-1">
+              <i data-lucide="tag" class="w-4 h-4"></i>
+              <span id="single-area-val">Pending</span>
+            </div>
+            <p class="text-[11px] text-slate-500 mt-2">Mapped from keyword overlap taxonomy</p>
+          </div>
+
+        </div>
+
+        <!-- Extracted Keywords Details -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Discovered Topic Keywords</h4>
+          <div id="single-keywords-list" class="flex flex-wrap gap-2 text-xs">
+            <span class="text-slate-400 italic">No keywords extracted yet</span>
+          </div>
+        </div>
+
+        <!-- Add to Batch Table Button -->
+        <div class="pt-4 border-t border-slate-100 flex justify-end">
+          <button onclick="addSingleToBatch()" class="px-4 py-2 bg-slate-800 hover:bg-slate-900 text-white rounded-lg text-xs font-semibold flex items-center space-x-1.5 transition">
+            <i data-lucide="plus-circle" class="w-4 h-4"></i>
+            <span>Add this review to Batch Dataset</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 3: BATCH DATASET & POWER BI EXPORTER -->
+    <!-- ========================================================================= -->
+    <div id="view-batch" class="tab-view hidden space-y-6">
+      
+      <!-- Toolbar & Action Bar -->
+      <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-4">
+        
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h2 class="text-base font-bold text-slate-900">Batch Reviews &amp; Power BI Slicing Explorer</h2>
+            <p class="text-xs text-slate-500">Filter, search, inspect topic assignments, and export structured records for Power BI or Azure Synapse.</p>
+          </div>
+          
+          <div class="flex flex-wrap items-center gap-2">
+            <!-- Preset switcher -->
+            <div class="flex items-center space-x-1 bg-slate-100 p-1 rounded-lg text-xs border border-slate-200">
+              <span class="text-slate-500 pl-1 font-medium">Presets:</span>
+              <button onclick="loadSampleDataset('ecommerce')" class="px-2 py-1 rounded bg-white font-medium text-slate-700 shadow-sm hover:text-sky-600">E-Commerce</button>
+              <button onclick="loadSampleDataset('logistics')" class="px-2 py-1 rounded bg-white font-medium text-slate-700 shadow-sm hover:text-sky-600">Logistics</button>
+              <button onclick="loadSampleDataset('saas')" class="px-2 py-1 rounded bg-white font-medium text-slate-700 shadow-sm hover:text-sky-600">SaaS App</button>
+            </div>
+
+            <!-- Upload Custom CSV -->
+            <label class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-medium cursor-pointer flex items-center space-x-1.5 border border-slate-200 transition">
+              <i data-lucide="upload" class="w-3.5 h-3.5"></i>
+              <span>Upload CSV / JSON</span>
+              <input type="file" id="batch-file-input" accept=".csv,.json,.txt" class="hidden" onchange="handleFileUpload(event)">
+            </label>
+
+            <!-- Export to Power BI CSV -->
+            <button onclick="exportToCSV()" class="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-semibold flex items-center space-x-1.5 shadow-sm transition">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i>
+              <span>Export Power BI CSV</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3 border-t border-slate-100">
+          
+          <!-- Search input -->
+          <div class="relative">
+            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-3"></i>
+            <input type="text" id="filter-search" oninput="applyFilters()" placeholder="Search review text or keywords..." class="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-sky-500 focus:bg-white outline-none">
+          </div>
+
+          <!-- Product Area Filter -->
+          <div class="relative">
+            <select id="filter-product-area" onchange="applyFilters()" class="w-full py-2 px-3 bg-slate-50 border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-sky-500 focus:bg-white outline-none text-slate-700 font-medium">
+              <option value="">All Product Areas (Taxonomy)</option>
+              <option value="Shipping & Delivery">Shipping & Delivery</option>
+              <option value="Product Quality">Product Quality</option>
+              <option value="Customer Support">Customer Support</option>
+              <option value="Pricing & Value">Pricing & Value</option>
+              <option value="App / Website UX">App / Website UX</option>
+              <option value="Packaging">Packaging</option>
+              <option value="Other / Uncategorized">Other / Uncategorized</option>
+            </select>
+          </div>
+
+          <!-- Sentiment Filter -->
+          <div class="relative">
+            <select id="filter-sentiment" onchange="applyFilters()" class="w-full py-2 px-3 bg-slate-50 border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-sky-500 focus:bg-white outline-none text-slate-700 font-medium">
+              <option value="">All Sentiments</option>
+              <option value="positive">Positive Only</option>
+              <option value="neutral">Neutral Only</option>
+              <option value="negative">Negative Only</option>
+            </select>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Data Table Card -->
+      <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+        
+        <div class="overflow-x-auto custom-scrollbar">
+          <table class="min-w-full divide-y divide-slate-200 text-xs">
+            <thead class="bg-slate-50">
+              <tr>
+                <th scope="col" class="px-4 py-3 text-left font-semibold text-slate-500 tracking-wider"># ID</th>
+                <th scope="col" class="px-4 py-3 text-left font-semibold text-slate-500 tracking-wider min-w-[280px]">Scrubbed Review Text</th>
+                <th scope="col" class="px-4 py-3 text-left font-semibold text-slate-500 tracking-wider">Sentiment</th>
+                <th scope="col" class="px-4 py-3 text-left font-semibold text-slate-500 tracking-wider">Score</th>
+                <th scope="col" class="px-4 py-3 text-left font-semibold text-slate-500 tracking-wider">Confidence</th>
+                <th scope="col" class="px-4 py-3 text-left font-semibold text-slate-500 tracking-wider min-w-[160px]">Topic Keywords</th>
+                <th scope="col" class="px-4 py-3 text-left font-semibold text-slate-500 tracking-wider">Governed Dimension</th>
+              </tr>
+            </thead>
+            <tbody id="batch-table-body" class="bg-white divide-y divide-slate-100">
+              <!-- Dynamically populated rows -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Table Footer / Pagination -->
+        <div class="px-4 py-3 bg-slate-50 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
+          <span id="table-record-count">Showing 0 reviews</span>
+          <div class="flex items-center space-x-2">
+            <button onclick="clearBatch()" class="text-rose-600 hover:text-rose-700 font-semibold px-2 py-1">Clear Dataset</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 4: GOVERNED TAXONOMY REFERENCE -->
+    <!-- ========================================================================= -->
+    <div id="view-taxonomy" class="tab-view hidden space-y-6">
+      
+      <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h2 class="text-base font-bold text-slate-900">Governed Product Area Taxonomy</h2>
+            <p class="text-xs text-slate-500">
+              Maps unconstrained ML-discovered topics (BERTopic / LDA) onto fixed corporate dimensions for predictable Power BI reporting.
+            </p>
+          </div>
+          <span class="px-2.5 py-1 bg-indigo-50 text-indigo-700 rounded-md text-xs font-semibold border border-indigo-200">
+            6 Governed Dimensions
+          </span>
+        </div>
+
+        <!-- Grid of Product Areas -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="taxonomy-cards-container">
+          <!-- Dynamically populated from taxonomy dictionary -->
+        </div>
+      </div>
+
+      <!-- Live Keyword Mapper Sandbox -->
+      <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
+        <div>
+          <h3 class="text-sm font-bold text-slate-900">Taxonomy Keyword Overlap Simulator</h3>
+          <p class="text-xs text-slate-500">
+            Test how arbitrary topic keywords map into a governed product area according to the python pipeline's <code class="text-sky-600 font-bold">map_topic_to_product_area()</code> function.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3">
+          <input type="text" id="sim-keywords-input" placeholder="e.g. shipping, tracking, package, delayed" class="flex-1 px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-sky-500 outline-none">
+          <button onclick="simulateTaxonomyMapping()" class="px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white rounded-lg text-xs font-semibold transition">
+            Test Mapping &rarr;
+          </button>
+        </div>
+
+        <!-- Simulation Result Card -->
+        <div id="sim-result-box" class="p-4 rounded-xl bg-slate-50 border border-slate-200 hidden">
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-slate-500 font-medium">Mapped Business Dimension:</span>
+            <span id="sim-result-area" class="text-sm font-bold text-sky-700 px-3 py-1 bg-sky-100 rounded-lg">Product Quality</span>
+          </div>
+          <div class="mt-2 text-xs text-slate-600" id="sim-result-details">
+            Matched 0 keywords.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="bg-white border-t border-slate-200 py-4 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
+      <div class="flex items-center space-x-2">
+        <span>sentiment_topic_analysis.py pipeline</span>
+        <span>•</span>
+        <span>BERTopic / LDA + VADER / Azure AI</span>
+      </div>
+      <div class="flex items-center space-x-4">
+        <span>CSV / Power BI export ready</span>
+        <span>•</span>
+        <a href="#single" onclick="switchTab('single')" class="text-sky-600 hover:underline">Interactive Tester</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- APPLICATION LOGIC (JavaScript) -->
+  <!-- ========================================================================= -->
+  <script>
+    // Governed taxonomy keywords definition matching the Python script
+    const PRODUCT_AREA_KEYWORDS = {
+      "Shipping & Delivery": ["shipping", "delivery", "delayed", "late", "arrived", "package", "courier", "tracking"],
+      "Product Quality": ["broken", "defective", "quality", "cheap", "material", "durable", "faulty", "damaged"],
+      "Customer Support": ["support", "refund", "return", "agent", "response", "service", "representative", "help desk"],
+      "Pricing & Value": ["price", "expensive", "value", "worth", "overpriced", "discount", "cost"],
+      "App / Website UX": ["app", "website", "checkout", "login", "crash", "bug", "interface", "loading"],
+      "Packaging": ["packaging", "box", "wrapping", "seal", "damaged box"]
+    };
+
+    // Client-side VADER lexicon fallback (for standalone mode)
+    const POS_WORDS = new Set(["great", "good", "love", "excellent", "fast", "awesome", "perfect", "easy", "satisfied", "helpful", "happy", "recommend", "durable", "best", "smooth", "pleased"]);
+    const NEG_WORDS = new Set(["bad", "terrible", "late", "broken", "cheap", "refund", "horrible", "delayed", "damaged", "fail", "slow", "bug", "crash", "worst", "overpriced", "useless", "flimsy"]);
+
+    // State
+    let batchData = [];
+    let filteredData = [];
+    let isConnectedToAPI = false;
+    let sentimentChart = null;
+    let areaChart = null;
+
+    // Presets
+    const PRESETS = {
+      ecommerce: [
+        "The delivery was three weeks late and customer support never replied.",
+        "Great quality for the price, durable material, would buy again.",
+        "The packaging box was completely crushed and torn open when arrived.",
+        "App crashed during checkout and charged my card twice.",
+        "Very overpriced for such cheap plastic, not worth the discount.",
+        "Customer service representative was extremely helpful with my return and refund.",
+        "Courier tracking never updated and package arrived damaged.",
+        "Interface is super clean, fast loading website and easy checkout.",
+        "Defective item upon arrival, broken hinge on day one.",
+        "Worth every penny, fantastic build quality and fast delivery.",
+        "Terrible support, agent closed the ticket without responding.",
+        "Packaging was neat with secure protective bubble wrap."
+      ],
+      logistics: [
+        "Courier arrived 4 days later than promised with no tracking update.",
+        "Package arrived safely on time with intact protective seal.",
+        "Delayed shipment, courier left the box outside in the rain.",
+        "Arrived very fast, shipping took less than 24 hours.",
+        "Delivery tracking status was stuck on 'in transit' for a week.",
+        "Driver was polite and package arrived in flawless packaging condition."
+      ],
+      saas: [
+        "The website checkout button causes a javascript crash on mobile.",
+        "Login screen keeps timing out with infinite loading spinner.",
+        "Love the new interface updates, seamless navigation and fast response.",
+        "Price increased by 30% without adding any noticeable value.",
+        "Support agent resolved my API bug issue within 10 minutes."
+      ]
+    };
+
+    // Initialize application
+    window.addEventListener('DOMContentLoaded', async () => {
+      lucide.createIcons();
+      renderTaxonomyCards();
+      await checkBackendHealth();
+      loadSampleDataset('ecommerce');
+      initCharts();
+      updateDashboard();
+    });
+
+    // Check backend API connectivity
+    async function checkBackendHealth() {
+      const pill = document.getElementById('backend-status-pill');
+      const text = document.getElementById('backend-status-text');
+      try {
+        const res = await fetch('/api/health', { signal: AbortSignal.timeout(1500) });
+        if (res.ok) {
+          isConnectedToAPI = true;
+          pill.className = "flex items-center space-x-2 px-3 py-1.5 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200";
+          text.textContent = "Python Backend Connected";
+          pill.querySelector('span').className = "w-2 h-2 rounded-full bg-emerald-500";
+          return;
+        }
+      } catch (err) {
+        // Standalone browser mode
+      }
+      isConnectedToAPI = false;
+      pill.className = "flex items-center space-x-2 px-3 py-1.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200";
+      text.textContent = "Standalone Browser Engine";
+      pill.querySelector('span').className = "w-2 h-2 rounded-full bg-blue-500";
+    }
+
+    // Tab Switching
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-view').forEach(view => view.classList.add('hidden'));
+
+      const activeBtn = document.getElementById(`tab-${tabId}`);
+      const activeView = document.getElementById(`view-${tabId}`);
+      if (activeBtn) activeBtn.classList.add('active');
+      if (activeView) activeView.classList.remove('hidden');
+
+      if (tabId === 'overview') {
+        setTimeout(updateCharts, 50);
+      }
+      lucide.createIcons();
+    }
+
+    // Taxonomy Mapping Algorithm (mirrors python map_topic_to_product_area)
+    function mapTopicToProductArea(keywords) {
+      let bestArea = "Other / Uncategorized";
+      let bestScore = 0;
+      const kwSet = new Set(keywords.map(k => k.toLowerCase()));
+
+      for (const [area, areaKws] of Object.entries(PRODUCT_AREA_KEYWORDS)) {
+        let overlap = 0;
+        for (const ak of areaKws) {
+          if (kwSet.has(ak.toLowerCase())) overlap++;
+        }
+        if (overlap > bestScore) {
+          bestArea = area;
+          bestScore = overlap;
+        }
+      }
+      return bestArea;
+    }
+
+    // Standalone Sentiment Scoring
+    function clientScore(text) {
+      const lower = (text || "").toLowerCase();
+      const tokens = lower.split(/[\s,.;:!?()]+/).filter(w => w.length > 2);
+      let posCount = 0;
+      let negCount = 0;
+
+      tokens.forEach(w => {
+        if (POS_WORDS.has(w)) posCount++;
+        if (NEG_WORDS.has(w)) negCount++;
+      });
+
+      let compound = 0;
+      let label = "neutral";
+      if (posCount > negCount) {
+        compound = Math.min(1.0, 0.25 + 0.25 * posCount);
+        label = "positive";
+      } else if (negCount > posCount) {
+        compound = Math.max(-1.0, -0.25 - 0.25 * negCount);
+        label = "negative";
+      } else {
+        compound = 0.0;
+        label = "neutral";
+      }
+      const confidence = Math.min(1.0, Math.abs(compound) + 0.45);
+      return {
+        label,
+        compound_score: Math.round(compound * 100) / 100,
+        confidence: Math.round(confidence * 100) / 100
+      };
+    }
+
+    // Standalone Keyword Extractor
+    function extractKeywords(text) {
+      const lower = (text || "").toLowerCase();
+      const matched = [];
+      for (const list of Object.values(PRODUCT_AREA_KEYWORDS)) {
+        for (const kw of list) {
+          if (lower.includes(kw) && !matched.includes(kw)) {
+            matched.push(kw);
+          }
+        }
+      }
+      if (matched.length === 0) {
+        const words = lower.split(/[\s,.;:!?()]+/).filter(w => w.length > 3);
+        return words.slice(0, 4);
+      }
+      return matched;
+    }
+
+    // Load Sample Dataset
+    async function loadSampleDataset(presetKey) {
+      const texts = PRESETS[presetKey] || PRESETS.ecommerce;
+      
+      if (isConnectedToAPI) {
+        try {
+          const res = await fetch('/api/batch', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ reviews: texts })
+          });
+          if (res.ok) {
+            const data = await res.json();
+            batchData = data.data;
+            applyFilters();
+            updateDashboard();
+            return;
+          }
+        } catch (e) {
+          console.warn("Backend batch failed, using browser fallback", e);
+        }
+      }
+
+      // Browser Fallback processing
+      batchData = texts.map((t, idx) => {
+        const sentiment = clientScore(t);
+        const kws = extractKeywords(t);
+        const area = mapTopicToProductArea(kws);
+        return {
+          id: idx + 1,
+          review_text_scrubbed: t,
+          sentiment_label: sentiment.label,
+          sentiment_score: sentiment.compound_score,
+          sentiment_confidence: sentiment.confidence,
+          topic_id: idx % 5,
+          topic_keywords: kws.join(", "),
+          product_area: area
+        };
+      });
+
+      applyFilters();
+      updateDashboard();
+    }
+
+    // Filter and search
+    function applyFilters() {
+      const search = (document.getElementById('filter-search').value || "").toLowerCase();
+      const area = document.getElementById('filter-product-area').value;
+      const sentiment = document.getElementById('filter-sentiment').value;
+
+      filteredData = batchData.filter(item => {
+        const matchesSearch = !search || 
+          item.review_text_scrubbed.toLowerCase().includes(search) || 
+          item.topic_keywords.toLowerCase().includes(search);
+        const matchesArea = !area || item.product_area === area;
+        const matchesSent = !sentiment || item.sentiment_label === sentiment;
+        return matchesSearch && matchesArea && matchesSent;
+      });
+
+      renderTable();
+    }
+
+    // Render Data Table
+    function renderTable() {
+      const tbody = document.getElementById('batch-table-body');
+      tbody.innerHTML = '';
+
+      document.getElementById('table-record-count').textContent = `Showing ${filteredData.length} of ${batchData.length} reviews`;
+      document.getElementById('batch-counter-badge').textContent = batchData.length;
+
+      if (filteredData.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" class="px-4 py-8 text-center text-slate-400">No reviews found matching current filters.</td></tr>`;
+        return;
+      }
+
+      filteredData.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.className = "hover:bg-slate-50 transition border-b border-slate-100";
+
+        // Sentiment badge styling
+        let sentClass = "bg-slate-100 text-slate-700";
+        if (row.sentiment_label === 'positive') sentClass = "bg-emerald-50 text-emerald-700 border border-emerald-200";
+        else if (row.sentiment_label === 'negative') sentClass = "bg-rose-50 text-rose-700 border border-rose-200";
+
+        // Score format
+        const scoreStr = row.sentiment_score >= 0 ? `+${row.sentiment_score.toFixed(2)}` : row.sentiment_score.toFixed(2);
+        const confPercent = Math.round((row.sentiment_confidence || 0) * 100);
+
+        // Governed Area color
+        const areaColors = {
+          "Shipping & Delivery": "bg-amber-50 text-amber-800 border-amber-200",
+          "Product Quality": "bg-indigo-50 text-indigo-800 border-indigo-200",
+          "Customer Support": "bg-purple-50 text-purple-800 border-purple-200",
+          "Pricing & Value": "bg-emerald-50 text-emerald-800 border-emerald-200",
+          "App / Website UX": "bg-sky-50 text-sky-800 border-sky-200",
+          "Packaging": "bg-orange-50 text-orange-800 border-orange-200",
+        };
+        const areaTagClass = areaColors[row.product_area] || "bg-slate-100 text-slate-700 border-slate-200";
+
+        tr.innerHTML = `
+          <td class="px-4 py-3 font-mono text-slate-400">#${row.id}</td>
+          <td class="px-4 py-3 font-medium text-slate-800">${escapeHtml(row.review_text_scrubbed)}</td>
+          <td class="px-4 py-3">
+            <span class="px-2 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider ${sentClass}">${row.sentiment_label}</span>
+          </td>
+          <td class="px-4 py-3 font-mono font-semibold ${row.sentiment_score > 0 ? 'text-emerald-600' : (row.sentiment_score < 0 ? 'text-rose-600' : 'text-slate-500')}">${scoreStr}</td>
+          <td class="px-4 py-3 font-mono text-slate-600">${confPercent}%</td>
+          <td class="px-4 py-3">
+            <div class="flex flex-wrap gap-1">
+              ${(row.topic_keywords || "").split(',').map(k => k.trim()).filter(Boolean).map(k => `<span class="bg-slate-100 text-slate-600 text-[10px] px-1.5 py-0.5 rounded">${escapeHtml(k)}</span>`).join('')}
+            </div>
+          </td>
+          <td class="px-4 py-3">
+            <span class="px-2 py-1 rounded-md text-[11px] font-semibold border ${areaTagClass}">${row.product_area}</span>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Dashboard & Chart Metrics
+    function updateDashboard() {
+      const total = batchData.length;
+      document.getElementById('stat-total').textContent = total;
+
+      if (total === 0) {
+        document.getElementById('stat-compound-avg').textContent = "0.00";
+        document.getElementById('stat-negative-rate').textContent = "0.0%";
+        document.getElementById('stat-top-area').textContent = "-";
+        return;
+      }
+
+      let posCount = 0;
+      let negCount = 0;
+      let neuCount = 0;
+      let totalCompound = 0;
+      const areaCounts = {};
+      const kwCounts = {};
+
+      batchData.forEach(item => {
+        totalCompound += (item.sentiment_score || 0);
+        if (item.sentiment_label === 'positive') posCount++;
+        else if (item.sentiment_label === 'negative') negCount++;
+        else neuCount++;
+
+        areaCounts[item.product_area] = (areaCounts[item.product_area] || 0) + 1;
+
+        if (item.topic_keywords) {
+          item.topic_keywords.split(',').forEach(k => {
+            const clean = k.trim().toLowerCase();
+            if (clean) kwCounts[clean] = (kwCounts[clean] || 0) + 1;
+          });
+        }
+      });
+
+      // Net Sentiment Compound Average
+      const avgCompound = totalCompound / total;
+      const avgFormatted = (avgCompound >= 0 ? `+` : ``) + avgCompound.toFixed(2);
+      document.getElementById('stat-compound-avg').textContent = avgFormatted;
+      
+      const badge = document.getElementById('stat-sentiment-badge');
+      if (avgCompound >= 0.1) {
+        badge.className = "px-2 py-0.5 text-xs font-semibold rounded-md bg-emerald-100 text-emerald-800";
+        badge.textContent = "Bullish / Positive";
+      } else if (avgCompound <= -0.1) {
+        badge.className = "px-2 py-0.5 text-xs font-semibold rounded-md bg-rose-100 text-rose-800";
+        badge.textContent = "Friction Alert";
+      } else {
+        badge.className = "px-2 py-0.5 text-xs font-semibold rounded-md bg-slate-100 text-slate-800";
+        badge.textContent = "Neutral Balance";
+      }
+
+      // Negative Rate
+      const negRate = ((negCount / total) * 100).toFixed(1);
+      document.getElementById('stat-negative-rate').textContent = `${negRate}%`;
+      document.getElementById('stat-breakdown-sub').textContent = `${posCount} pos / ${neuCount} neu / ${negCount} neg`;
+
+      // Dominant Area
+      let maxArea = "-";
+      let maxAreaVal = 0;
+      for (const [a, c] of Object.entries(areaCounts)) {
+        if (c > maxAreaVal) {
+          maxAreaVal = c;
+          maxArea = a;
+        }
+      }
+      document.getElementById('stat-top-area').textContent = maxArea;
+
+      // Donut sub-metrics
+      document.getElementById('donut-pos-val').textContent = posCount;
+      document.getElementById('donut-neu-val').textContent = neuCount;
+      document.getElementById('donut-neg-val').textContent = negCount;
+
+      // Render Keyword Cloud
+      renderKeywordCloud(kwCounts);
+
+      // Update Charts
+      updateCharts();
+    }
+
+    // Top keyword chips
+    function renderKeywordCloud(kwCounts) {
+      const container = document.getElementById('keyword-cloud-container');
+      container.innerHTML = '';
+      const sorted = Object.entries(kwCounts).sort((a, b) => b[1] - a[1]).slice(0, 14);
+
+      if (sorted.length === 0) {
+        container.innerHTML = `<span class="text-xs text-slate-400">No topic keywords recorded yet.</span>`;
+        return;
+      }
+
+      sorted.forEach(([kw, count]) => {
+        const chip = document.createElement('span');
+        chip.className = "inline-flex items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-700 border border-slate-200";
+        chip.innerHTML = `<span>#${escapeHtml(kw)}</span><span class="text-[10px] font-bold px-1.5 py-0.2 rounded-full bg-slate-200 text-slate-600">${count}</span>`;
+        container.appendChild(chip);
+      });
+    }
+
+    // Chart.js initialization
+    function initCharts() {
+      // Donut Chart
+      const donutCtx = document.getElementById('chart-sentiment-donut').getContext('2d');
+      sentimentChart = new Chart(donutCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Positive', 'Neutral', 'Negative'],
+          datasets: [{
+            data: [0, 0, 0],
+            backgroundColor: ['#10b981', '#94a3b8', '#f43f5e'],
+            hoverOffset: 4,
+            borderWidth: 2,
+            borderColor: '#ffffff'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'bottom', labels: { boxWidth: 12, font: { family: 'Inter', size: 11 } } }
+          },
+          cutout: '70%'
+        }
+      });
+
+      // Stacked Bar Chart for Product Areas
+      const barCtx = document.getElementById('chart-area-bar').getContext('2d');
+      areaChart = new Chart(barCtx, {
+        type: 'bar',
+        data: {
+          labels: [],
+          datasets: [
+            { label: 'Positive', data: [], backgroundColor: '#10b981' },
+            { label: 'Neutral', data: [], backgroundColor: '#94a3b8' },
+            { label: 'Negative', data: [], backgroundColor: '#f43f5e' }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: { stacked: true, grid: { display: false }, ticks: { font: { family: 'Inter', size: 10 } } },
+            y: { stacked: true, beginAtZero: true, ticks: { stepSize: 1, font: { family: 'Inter', size: 10 } } }
+          },
+          plugins: {
+            legend: { position: 'top', labels: { boxWidth: 12, font: { family: 'Inter', size: 11 } } }
+          }
+        }
+      });
+    }
+
+    // Refresh Chart data
+    function updateCharts() {
+      if (!sentimentChart || !areaChart) return;
+
+      let pos = 0, neu = 0, neg = 0;
+      const areaBreakdown = {};
+
+      // Initialize all taxonomy keys
+      Object.keys(PRODUCT_AREA_KEYWORDS).forEach(k => {
+        areaBreakdown[k] = { pos: 0, neu: 0, neg: 0 };
+      });
+      areaBreakdown["Other / Uncategorized"] = { pos: 0, neu: 0, neg: 0 };
+
+      batchData.forEach(item => {
+        if (item.sentiment_label === 'positive') pos++;
+        else if (item.sentiment_label === 'negative') neg++;
+        else neu++;
+
+        const a = item.product_area || "Other / Uncategorized";
+        if (!areaBreakdown[a]) areaBreakdown[a] = { pos: 0, neu: 0, neg: 0 };
+        if (item.sentiment_label === 'positive') areaBreakdown[a].pos++;
+        else if (item.sentiment_label === 'negative') areaBreakdown[a].neg++;
+        else areaBreakdown[a].neu++;
+      });
+
+      // Update Donut
+      sentimentChart.data.datasets[0].data = [pos, neu, neg];
+      sentimentChart.update();
+
+      // Update Stacked Bar
+      const areasWithData = Object.keys(areaBreakdown).filter(a => {
+        const d = areaBreakdown[a];
+        return (d.pos + d.neu + d.neg) > 0;
+      });
+
+      areaChart.data.labels = areasWithData.length ? areasWithData : Object.keys(PRODUCT_AREA_KEYWORDS);
+      areaChart.data.datasets[0].data = (areasWithData.length ? areasWithData : Object.keys(PRODUCT_AREA_KEYWORDS)).map(a => areaBreakdown[a]?.pos || 0);
+      areaChart.data.datasets[1].data = (areasWithData.length ? areasWithData : Object.keys(PRODUCT_AREA_KEYWORDS)).map(a => areaBreakdown[a]?.neu || 0);
+      areaChart.data.datasets[2].data = (areasWithData.length ? areasWithData : Object.keys(PRODUCT_AREA_KEYWORDS)).map(a => areaBreakdown[a]?.neg || 0);
+      areaChart.update();
+    }
+
+    // Single Review Analysis
+    let lastSingleAnalysis = null;
+    async function analyzeSingleReview() {
+      const text = document.getElementById('single-input-text').value.trim();
+      if (!text) {
+        alert("Please enter review text to analyze.");
+        return;
+      }
+
+      const engine = document.getElementById('engine-select').value;
+      const btn = document.getElementById('btn-analyze-single');
+      btn.disabled = true;
+      btn.classList.add('opacity-75');
+
+      let result = null;
+
+      if (isConnectedToAPI) {
+        try {
+          const res = await fetch('/api/analyze', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ text, engine })
+          });
+          if (res.ok) {
+            result = await res.json();
+          }
+        } catch (e) {
+          console.warn("Backend analyze failed, using browser fallback", e);
+        }
+      }
+
+      // Standalone Fallback
+      if (!result) {
+        const sentiment = clientScore(text);
+        const kws = extractKeywords(text);
+        const area = mapTopicToProductArea(kws);
+        result = {
+          text,
+          sentiment: {
+            label: sentiment.label,
+            compound_score: sentiment.compound_score,
+            confidence: sentiment.confidence
+          },
+          topic: {
+            keywords: kws,
+            product_area: area
+          }
+        };
+      }
+
+      lastSingleAnalysis = result;
+      displaySingleResult(result);
+
+      btn.disabled = false;
+      btn.classList.remove('opacity-75');
+    }
+
+    function displaySingleResult(res) {
+      const badge = document.getElementById('single-sentiment-badge');
+      const labelText = document.getElementById('single-sentiment-label-text');
+      const scoreVal = document.getElementById('single-score-val');
+      const scoreBar = document.getElementById('single-score-bar');
+      const confVal = document.getElementById('single-conf-val');
+      const confBar = document.getElementById('single-conf-bar');
+      const areaVal = document.getElementById('single-area-val');
+      const kwContainer = document.getElementById('single-keywords-list');
+
+      const s = res.sentiment;
+      const t = res.topic;
+
+      // Label & Badges
+      if (s.label === 'positive') {
+        badge.className = "px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300";
+        badge.textContent = "Positive Sentiment";
+        labelText.textContent = "Satisfied customer feedback detected";
+        scoreBar.className = "h-full bg-emerald-500 transition-all duration-300";
+      } else if (s.label === 'negative') {
+        badge.className = "px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-rose-100 text-rose-800 border border-rose-300";
+        badge.textContent = "Negative Sentiment";
+        labelText.textContent = "Customer complaint / friction point flagged";
+        scoreBar.className = "h-full bg-rose-500 transition-all duration-300";
+      } else {
+        badge.className = "px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-slate-100 text-slate-800 border border-slate-300";
+        badge.textContent = "Neutral Sentiment";
+        labelText.textContent = "Informational or balanced customer feedback";
+        scoreBar.className = "h-full bg-slate-400 transition-all duration-300";
+      }
+
+      // Compound Score
+      scoreVal.textContent = (s.compound_score >= 0 ? `+` : ``) + s.compound_score.toFixed(2);
+      // Map [-1, 1] to [0%, 100%]
+      const normWidth = ((s.compound_score + 1) / 2) * 100;
+      scoreBar.style.width = `${Math.max(5, normWidth)}%`;
+
+      // Confidence
+      const confPct = Math.round(s.confidence * 100);
+      confVal.textContent = `${confPct}%`;
+      confBar.style.width = `${confPct}%`;
+
+      // Product Area
+      areaVal.textContent = t.product_area;
+
+      // Extracted Keywords
+      kwContainer.innerHTML = '';
+      if (t.keywords && t.keywords.length > 0) {
+        t.keywords.forEach(kw => {
+          const isTaxonomyMatch = Object.values(PRODUCT_AREA_KEYWORDS).some(arr => arr.includes(kw.toLowerCase()));
+          const kwBadge = document.createElement('span');
+          kwBadge.className = isTaxonomyMatch 
+            ? "px-2.5 py-1 rounded-full bg-sky-100 text-sky-800 border border-sky-300 font-semibold flex items-center space-x-1" 
+            : "px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200";
+          kwBadge.innerHTML = isTaxonomyMatch ? `<span>${escapeHtml(kw)}</span><i data-lucide="check" class="w-3 h-3 text-sky-600"></i>` : `<span>${escapeHtml(kw)}</span>`;
+          kwContainer.appendChild(kwBadge);
+        });
+        lucide.createIcons();
+      } else {
+        kwContainer.innerHTML = `<span class="text-slate-400 italic">No salient topic terms found</span>`;
+      }
+    }
+
+    function addSingleToBatch() {
+      if (!lastSingleAnalysis) {
+        alert("Please analyze a review first.");
+        return;
+      }
+      const newItem = {
+        id: batchData.length + 1,
+        review_text_scrubbed: lastSingleAnalysis.text,
+        sentiment_label: lastSingleAnalysis.sentiment.label,
+        sentiment_score: lastSingleAnalysis.sentiment.compound_score,
+        sentiment_confidence: lastSingleAnalysis.sentiment.confidence,
+        topic_id: 1,
+        topic_keywords: (lastSingleAnalysis.topic.keywords || []).join(', '),
+        product_area: lastSingleAnalysis.topic.product_area
+      };
+      batchData.unshift(newItem);
+      applyFilters();
+      updateDashboard();
+      switchTab('batch');
+    }
+
+    function fillSample(text) {
+      const textarea = document.getElementById('single-input-text');
+      textarea.value = text;
+      document.getElementById('single-char-count').textContent = `${text.length} characters`;
+      analyzeSingleReview();
+    }
+
+    function clearSingleInput() {
+      document.getElementById('single-input-text').value = '';
+      document.getElementById('single-char-count').textContent = '0 characters';
+    }
+
+    document.getElementById('single-input-text')?.addEventListener('input', (e) => {
+      document.getElementById('single-char-count').textContent = `${e.target.value.length} characters`;
+    });
+
+    // Render Taxonomy Cards
+    function renderTaxonomyCards() {
+      const container = document.getElementById('taxonomy-cards-container');
+      container.innerHTML = '';
+
+      const icons = {
+        "Shipping & Delivery": "truck",
+        "Product Quality": "shield-check",
+        "Customer Support": "headphones",
+        "Pricing & Value": "dollar-sign",
+        "App / Website UX": "smartphone",
+        "Packaging": "box"
+      };
+
+      for (const [area, kws] of Object.entries(PRODUCT_AREA_KEYWORDS)) {
+        const card = document.createElement('div');
+        card.className = "p-4 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white transition shadow-xs flex flex-col justify-between";
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center space-x-2 text-slate-800 font-bold text-sm mb-2">
+              <i data-lucide="${icons[area] || 'tag'}" class="w-4 h-4 text-sky-600"></i>
+              <span>${area}</span>
+            </div>
+            <p class="text-xs text-slate-500 mb-3">Governed keyword dictionary (${kws.length} tokens):</p>
+            <div class="flex flex-wrap gap-1.5">
+              ${kws.map(k => `<span class="bg-white border border-slate-200 text-slate-700 text-[11px] px-2 py-0.5 rounded font-mono">${k}</span>`).join('')}
+            </div>
+          </div>
+          <div class="mt-4 pt-2 border-t border-slate-200/60 text-[11px] text-slate-400">
+            Power BI Dimension: <span class="font-semibold text-slate-600">${area}</span>
+          </div>
+        `;
+        container.appendChild(card);
+      }
+      lucide.createIcons();
+    }
+
+    // Taxonomy Simulation Sandbox
+    function simulateTaxonomyMapping() {
+      const input = document.getElementById('sim-keywords-input').value;
+      if (!input.trim()) return;
+
+      const words = input.split(/[\s,]+/).map(w => w.trim().toLowerCase()).filter(Boolean);
+      const matchedArea = mapTopicToProductArea(words);
+
+      const resultBox = document.getElementById('sim-result-box');
+      const areaEl = document.getElementById('sim-result-area');
+      const detailsEl = document.getElementById('sim-result-details');
+
+      resultBox.classList.remove('hidden');
+      areaEl.textContent = matchedArea;
+
+      const matchedDictKws = (PRODUCT_AREA_KEYWORDS[matchedArea] || []).filter(k => words.includes(k));
+      detailsEl.innerHTML = `Overlapping keywords matched: <span class="font-semibold text-slate-800">${matchedDictKws.join(', ') || 'None (Defaulted to Other)'}</span> (${matchedDictKws.length} hits).`;
+    }
+
+    // Export CSV (Exact schema matching run_analysis dataframe)
+    function exportToCSV() {
+      if (batchData.length === 0) {
+        alert("No data available to export.");
+        return;
+      }
+
+      const headers = ["review_text_scrubbed", "sentiment_label", "sentiment_score", "sentiment_confidence", "topic_id", "topic_keywords", "product_area"];
+      const csvRows = [headers.join(",")];
+
+      batchData.forEach(row => {
+        const cleanText = `"${(row.review_text_scrubbed || '').replace(/"/g, '""')}"`;
+        const cleanKws = `"${(row.topic_keywords || '').replace(/"/g, '""')}"`;
+        csvRows.push([
+          cleanText,
+          row.sentiment_label,
+          row.sentiment_score,
+          row.sentiment_confidence,
+          row.topic_id,
+          cleanKws,
+          `"${row.product_area}"`
+        ].join(","));
+      });
+
+      const blob = new Blob([csvRows.join("\n")], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", `customer_reviews_sentiment_topics_${new Date().toISOString().slice(0, 10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // Handle Custom File Upload (CSV/JSON/TXT)
+    function handleFileUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        const content = e.target.result;
+        let reviews = [];
+
+        if (file.name.endsWith('.json')) {
+          try {
+            const parsed = JSON.parse(content);
+            reviews = Array.isArray(parsed) ? parsed.map(p => (typeof p === 'string' ? p : p.review_text_scrubbed || p.text || JSON.stringify(p))) : [];
+          } catch (err) {
+            alert("Failed to parse JSON file.");
+            return;
+          }
+        } else {
+          // Parse lines / CSV
+          const lines = content.split('\n').map(l => l.trim()).filter(Boolean);
+          // Check if header row exists
+          const startIdx = lines[0].toLowerCase().includes('review') || lines[0].toLowerCase().includes('text') ? 1 : 0;
+          reviews = lines.slice(startIdx).map(line => {
+            if (line.startsWith('"') && line.endsWith('"')) {
+              return line.slice(1, -1).replace(/""/g, '"');
+            }
+            return line;
+          });
+        }
+
+        if (reviews.length === 0) {
+          alert("No reviews found in uploaded file.");
+          return;
+        }
+
+        // Process batch
+        if (isConnectedToAPI) {
+          try {
+            const res = await fetch('/api/batch', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ reviews: reviews.slice(0, 150) })
+            });
+            if (res.ok) {
+              const data = await res.json();
+              batchData = data.data;
+              applyFilters();
+              updateDashboard();
+              alert(`Successfully imported & analyzed ${batchData.length} customer reviews!`);
+              return;
+            }
+          } catch (err) {}
+        }
+
+        // Browser Fallback processing
+        batchData = reviews.slice(0, 150).map((t, idx) => {
+          const sent = clientScore(t);
+          const kws = extractKeywords(t);
+          return {
+            id: idx + 1,
+            review_text_scrubbed: t,
+            sentiment_label: sent.label,
+            sentiment_score: sent.compound_score,
+            sentiment_confidence: sent.confidence,
+            topic_id: idx % 6,
+            topic_keywords: kws.join(", "),
+            product_area: mapTopicToProductArea(kws)
+          };
+        });
+
+        applyFilters();
+        updateDashboard();
+        alert(`Successfully imported & analyzed ${batchData.length} customer reviews!`);
+      };
+
+      reader.readAsText(file);
+    }
+
+    function clearBatch() {
+      if (confirm("Clear all reviews in current batch?")) {
+        batchData = [];
+        applyFilters();
+        updateDashboard();
+      }
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+  </script>
+</body>
+</html>
