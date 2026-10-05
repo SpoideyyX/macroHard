@@ -1,37 +1,3 @@
-# ReviewIQ - Product Review Intelligence & Sentiment Analysis Hub
-
-A complete, self-contained executive intelligence platform for analyzing customer reviews, extracting topic keywords via machine learning, and mapping feedback to governed business dimensions (Power BI / Synapse / Tableau ready).
-
-Built to work with zero external dependencies (pure Python standard library + modern interactive frontend).
-
----
-
-## ⚡ Quick Start (Run Directly)
-
-### Option 1: Double-Click or One Command (Recommended)
-
-1. Open your terminal in the extracted folder:
-   ```bash
-   cd sentiment-frontend
-   ./start.sh
-   ```
-2. The server will start and automatically launch **`http://localhost:8000/executive_dashboard.html`** in your default browser.
-
-### Option 2: Standard Python Server Command
-
-```bash
-cd sentiment-frontend
-python3 server.py
-```
-Then visit:
-* **Product Intelligence & Executive Dashboard:** [http://localhost:8000/executive_dashboard.html](http://localhost:8000/executive_dashboard.html)
-* **Comprehensive Analytics & Workbench:** [http://localhost:8000/index.html](http://localhost:8000/index.html)
-
-### Option 3: Standalone Offline Mode (Zero Server)
-Simply double-click **`executive_dashboard.html`** or **`index.html`** directly in Chrome, Edge, Safari, or Firefox. The built-in client NLP engine runs entirely in your browser without requiring Python.
-
----
-
 ## 📂 Included Files & Project Structure
 
 | File | Description |
