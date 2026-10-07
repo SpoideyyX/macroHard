@@ -1,3 +1,120 @@
+<!--
+================ IMPORTANT CODE FOR VIVA ================
+
+~ Line 430–440
+PRODUCT_AREA_KEYWORDS
+→ Reviews ko fixed business/product categories se map karne ke keywords define karta hai.
+
+~ Line 442–443
+POS_WORDS / NEG_WORDS
+→ Browser fallback sentiment ke liye positive aur negative words ki lists.
+
+~ Line 445–449
+batchData / filteredData / API variables
+→ Reviews ka main dataset, filtered dataset aur backend connection state store karta hai.
+
+~ Line 480–487
+DOMContentLoaded
+→ Page load hote hi icons, taxonomy, backend check, sample data aur charts initialize karta hai.
+
+~ Line 490–510
+checkBackendHealth()
+→ /api/health call karke Python backend connected hai ya nahi check karta hai.
+
+~ Line 513–528
+switchTab()
+→ Overview, Single Review, Batch aur Taxonomy tabs ko show/hide karta hai.
+
+~ Line 531–546
+mapTopicToProductArea()
+→ Review ke keywords ko taxonomy keywords se match karke Product Area assign karta hai.
+
+~ Line 549–576
+clientScore()
+→ Backend unavailable hone par keywords ke basis par basic sentiment score calculate karta hai.
+
+~ Line 579–592
+extractKeywords()
+→ Review text se relevant topic keywords extract karta hai.
+
+~ Line 595–630
+loadSampleDataset()
+→ Sample reviews ko backend /api/batch ya browser fallback se process karta hai.
+
+~ Line 633–650
+applyFilters()
+→ Search, Product Area aur Sentiment filters apply karke filtered reviews banata hai.
+
+~ Line 653–700
+renderTable()
+→ Processed reviews ko sentiment, score, confidence, keywords aur product area ke saath table me display karta hai.
+
+~ Line 703–770
+updateDashboard()
+→ Total reviews, average sentiment, negative rate aur dominant Product Area calculate karta hai.
+
+~ Line 773–790
+renderKeywordCloud()
+→ Frequently occurring topic keywords ko dashboard par show karta hai.
+
+~ Line 793–845
+initCharts()
+→ Chart.js se Sentiment Donut aur Product Area Bar charts create karta hai.
+
+~ Line 848–890
+updateCharts()
+→ Current dataset ke according charts ka data update karta hai.
+
+~ Line 893–950
+analyzeSingleReview()
+→ Single review ko /api/analyze backend par bhejta hai; failure par browser fallback use karta hai.
+
+~ Line 953–1015
+displaySingleResult()
+→ Single review ka sentiment, score, confidence, Product Area aur keywords UI me display karta hai.
+
+~ Line 1018–1035
+addSingleToBatch()
+→ Analyzed single review ko batch dataset me add karta hai.
+
+~ Line 1050–1085
+renderTaxonomyCards()
+→ Fixed Product Area taxonomy aur unke keywords ko UI cards me display karta hai.
+
+~ Line 1088–1105
+simulateTaxonomyMapping()
+→ Given keywords ko taxonomy mapping logic se test karke matching Product Area dikhata hai.
+
+~ Line 1108–1135
+exportToCSV()
+→ Processed review data ko CSV file me export karta hai.
+
+~ Line 1138–1205
+handleFileUpload()
+→ CSV/JSON/TXT file read karke reviews ko backend ya browser fallback se analyze karta hai.
+
+~ Line 1208–1215
+clearBatch()
+→ Current batch ke saare reviews clear karta hai.
+
+~ Line 1218–1227
+escapeHtml()
+→ Special HTML characters escape karke review text ko safely display karta hai.
+
+================ API CALLS ================
+
+~ /api/health
+→ Python backend connection check karta hai.
+
+~ /api/analyze
+→ Single review ka sentiment/topic analysis backend se leta hai.
+
+~ /api/batch
+→ Multiple reviews ko ek saath backend par analyze karta hai.
+
+===========================================================
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
