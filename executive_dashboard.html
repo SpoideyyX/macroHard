@@ -1,118 +1,472 @@
-<!--
+<!-- ============================================================
+IMPORTANT CODE SECTIONS — PRODUCT REVIEW DASHBOARD
+============================================================
 
-~ Line 430–440
+Line 1–8
+HTML DOCUMENT SETUP
+HTML page ka basic structure, viewport aur page title define
+karta hai. Tailwind CSS bhi load kiya gaya hai.
+
+Line 9–28
+THEME VARIABLES
+Light aur dark mode ke liye background, card, text, border,
+primary aur sentiment colors define kiye gaye hain.
+
+Line 30–56
+UI ANIMATIONS
+Charts, bars aur badge chips ke hover effects aur transitions
+define karta hai.
+
+
+============================================================
+MAIN UI SECTIONS
+============================================================
+
+Line 61–103
+MAIN CONTAINER & CORPORATE HEADER
+Main dashboard container aur top employee header create karta hai.
+Employee role, VADER + LDA pipeline status, backend connection,
+CSV upload aur Paste Reviews buttons yahin hain.
+
+Line 106–133
+CSV UPLOAD / DROPZONE
+Customer review CSV files ko drag-and-drop ya Browse File se
+upload karne ka interface.
+Preset CSV datasets bhi load kiye ja sakte hain.
+
+Line 136–205
+PRODUCT SELECTION & HERO CARD
+Dataset ke products ko select karne ke liye dropdown.
+Selected product ka name, SKU, category, team, rating aur
+review count display karta hai.
+
+Line 207–231
+EXECUTIVE ACTION ITEMS
+Operations, Quality/Engineering aur Customer Delight ke
+automated action cards.
+NOTE: Ye section currently HTML comment ke andar disabled hai.
+
+Line 233–308
+EXECUTIVE KPI GRID
+Four major dashboard metrics display karta hai:
+1. Review Volume
+2. Product Net Sentiment Score
+3. Positive / Neutral / Negative Split
+4. Top Friction Area
+
+Line 310–390
+SENTIMENT & PRODUCT AREA ANALYTICS
+Interactive sentiment donut chart aur six governed product
+dimensions ka stacked-bar breakdown display karta hai.
+
+Line 313–361
+SENTIMENT DONUT CHART
+Positive, Neutral aur Negative reviews ko SVG donut chart
+mein show karta hai.
+Chart ke arc par click karke sentiment filter apply hota hai.
+
+Line 363–388
+PRODUCT AREA BREAKDOWN
+Shipping & Delivery, Product Quality, Customer Support,
+Pricing & Value, App / Website UX aur Packaging ko
+positive/neutral/negative breakdown ke saath display karta hai.
+
+Line 392–449
+KEYWORD CLOUD & CUSTOMER REVIEWS
+Left side par discovered keywords aur right side par
+actual customer reviews display karta hai.
+Reviews ko CSV mein export bhi kiya ja sakta hai.
+
+
+============================================================
+INGEST MODAL
+============================================================
+
+Line 453–490
+PASTE REVIEWS MODAL
+User manually product name, SKU aur multiple customer reviews
+paste kar sakta hai.
+"Run Analysis" button reviews ko analysis pipeline mein bhejta hai.
+
+
+============================================================
+JAVASCRIPT ENGINE
+============================================================
+
+Line 492–501
+APPLICATION STATE
+Uploaded reviews, current product, master reviews, keywords,
+sentiment filter, area filter aur time range jaise variables
+store karta hai.
+
+Line 503–513
+KNOWN PRODUCTS
+Predefined products ka name, icon, category aur SKU store
+karta hai.
+Product selector aur product metadata ke liye use hota hai.
+
+Line 515–521
+PRODUCT AREAS
+Six governed business dimensions define karta hai:
+
+1. Shipping & Delivery
+2. Product Quality
+3. Customer Support
+4. Pricing & Value
+5. App / Website UX
+6. Packaging
+
+
+============================================================
+INITIALIZATION & FILE UPLOAD
+============================================================
+
+Line 524–528
+PAGE INITIALIZATION
+Page load hone par drag-and-drop setup karta hai aur
+default multi-product CSV dataset load karta hai.
+
+Line 530–557
+DRAG & DROP HANDLER
+CSV file ko dashboard ke dropzone par drag-and-drop karne
+par file processing start karta hai.
+
+Line 560–564
+DIRECT FILE INPUT
+Browse File button se selected CSV file ko process karta hai.
+
+Line 567–649
+CSV PARSER
+CSV text ko manually parse karta hai.
+Quotes, commas aur new lines ko handle karta hai.
+
+Line 609–615
+AUTO COLUMN DETECTION
+CSV ke headers ko automatically identify karta hai:
+
+Review Text
+ID
+Date
+Product Area
+Sentiment Label
+Product
+
+Line 617–648
+RECORD CREATION
+Har CSV row ko standardized review object mein convert karta hai.
+Agar product column available nahi hai to review text ke andar
+known product names search karta hai.
+
+Line 652–673
+FILE PROCESSING
+Uploaded CSV ko FileReader se read karta hai, parse karta hai
+aur analysis pipeline mein bhejta hai.
+
+Line 676–693
+PRESET CSV LOADING
+Server se predefined CSV datasets fetch karta hai aur
+analysis ke liye process karta hai.
+
+
+============================================================
+TAXONOMY & SENTIMENT ENGINE
+============================================================
+
+Line 695–701
 PRODUCT_AREA_KEYWORDS
-→ Reviews ko fixed business/product categories se map karne ke keywords define karta hai.
+Six business categories ke saath related keywords define
+karta hai.
+In keywords ki help se review ka product area identify hota hai.
 
-~ Line 442–443
-POS_WORDS / NEG_WORDS
-→ Browser fallback sentiment ke liye positive aur negative words ki lists.
+Line 704–720
+PRODUCT AREA MAPPING
+Review ke keywords aur review text ko PRODUCT_AREA_KEYWORDS
+ke saath compare karta hai.
+Jis category ke keywords ka overlap sabse zyada hota hai,
+usi category ko product area select karta hai.
 
-~ Line 445–449
-batchData / filteredData / API variables
-→ Reviews ka main dataset, filtered dataset aur backend connection state store karta hai.
+Line 723–729
+QUICK KEYWORD EXTRACTION
+Review text ko words mein split karta hai, common stop words
+remove karta hai aur first relevant keywords extract karta hai.
 
-~ Line 480–487
-DOMContentLoaded
-→ Page load hote hi icons, taxonomy, backend check, sample data aur charts initialize karta hai.
+Line 731–765
+SINGLE TEXT SENTIMENT SCORING
+Positive aur negative word lists ke basis par sentiment calculate
+karta hai.
 
-~ Line 490–510
-checkBackendHealth()
-→ /api/health call karke Python backend connected hai ya nahi check karta hai.
+Output:
+- sentiment label
+- sentiment score
+- confidence
 
-~ Line 513–528
-switchTab()
-→ Overview, Single Review, Batch aur Taxonomy tabs ko show/hide karta hai.
+NOTE: Ye browser-side simplified sentiment engine hai.
 
-~ Line 531–546
-mapTopicToProductArea()
-→ Review ke keywords ko taxonomy keywords se match karke Product Area assign karta hai.
 
-~ Line 549–576
-clientScore()
-→ Backend unavailable hone par keywords ke basis par basic sentiment score calculate karta hai.
+============================================================
+BATCH ANALYSIS
+============================================================
 
-~ Line 579–592
-extractKeywords()
-→ Review text se relevant topic keywords extract karta hai.
+Line 769–888
+BATCH INGEST & ANALYSIS
+Multiple reviews ko analysis ke liye process karta hai.
 
-~ Line 595–630
-loadSampleDataset()
-→ Sample reviews ko backend /api/batch ya browser fallback se process karta hai.
+Line 780–788
+BACKEND PAYLOAD
+Review data ko backend ke expected JSON format mein convert
+karta hai.
 
-~ Line 633–650
-applyFilters()
-→ Search, Product Area aur Sentiment filters apply karke filtered reviews banata hai.
+Line 791–794
+BACKEND API CALL
+/api/batch endpoint par POST request bhejta hai.
 
-~ Line 653–700
-renderTable()
-→ Processed reviews ko sentiment, score, confidence, keywords aur product area ke saath table me display karta hai.
+Line 797–842
+BACKEND RESPONSE PROCESSING
+Python backend se analyzed reviews receive karta hai.
+Product area, sentiment, score, confidence aur keywords
+resolve karta hai.
 
-~ Line 703–770
-updateDashboard()
-→ Total reviews, average sentiment, negative rate aur dominant Product Area calculate karta hai.
+Line 804–810
+PRODUCT AREA PRIORITY
+Agar CSV mein product_area already available hai to usko
+priority deta hai.
+Otherwise backend result ya browser taxonomy mapping use karta hai.
 
-~ Line 773–790
-renderKeywordCloud()
-→ Frequently occurring topic keywords ko dashboard par show karta hai.
+Line 812–821
+SENTIMENT RESOLUTION
+Backend sentiment available ho to use karta hai.
+Agar backend result neutral/empty ho ya true label available ho,
+to browser-side scoring dobara perform karta hai.
 
-~ Line 793–845
-initCharts()
-→ Chart.js se Sentiment Donut aur Product Area Bar charts create karta hai.
+Line 824–827
+KEYWORD RESOLUTION
+Backend ke topic keywords use karta hai.
+Agar keywords available nahi hain to quick keyword extraction
+fallback use karta hai.
 
-~ Line 848–890
-updateCharts()
-→ Current dataset ke according charts ka data update karta hai.
+Line 846–870
+CLIENT-SIDE FALLBACK
+Agar Python backend unavailable ho to browser khud:
+- sentiment
+- score
+- confidence
+- product area
+- keywords
 
-~ Line 893–950
-analyzeSingleReview()
-→ Single review ko /api/analyze backend par bhejta hai; failure par browser fallback use karta hai.
+calculate karta hai.
 
-~ Line 953–1015
-displaySingleResult()
-→ Single review ka sentiment, score, confidence, Product Area aur keywords UI me display karta hai.
+Line 874–886
+BATCH STATE UPDATE
+Processed reviews ko ALL_UPLOADED_REVIEWS mein store karta hai,
+product selector rebuild karta hai aur dashboard update karta hai.
 
-~ Line 1018–1035
-addSingleToBatch()
-→ Analyzed single review ko batch dataset me add karta hai.
 
-~ Line 1050–1085
-renderTaxonomyCards()
-→ Fixed Product Area taxonomy aur unke keywords ko UI cards me display karta hai.
+============================================================
+PRODUCT MANAGEMENT
+============================================================
 
-~ Line 1088–1105
-simulateTaxonomyMapping()
-→ Given keywords ko taxonomy mapping logic se test karke matching Product Area dikhata hai.
+Line 889–919
+DYNAMIC PRODUCT SELECTOR
+Uploaded dataset mein available products count karta hai aur
+dropdown ko dynamically populate karta hai.
 
-~ Line 1108–1135
-exportToCSV()
-→ Processed review data ko CSV file me export karta hai.
+Line 921–931
+PRODUCT ICON MAPPING
+Product ke naam ke basis par suitable emoji/icon select karta hai.
 
-~ Line 1138–1205
-handleFileUpload()
-→ CSV/JSON/TXT file read karke reviews ko backend ya browser fallback se analyze karta hai.
+Line 934–936
+PRODUCT SELECTION
+User ke selected product ko CURRENT_PRODUCT_FILTER mein store
+karke dashboard update karta hai.
 
-~ Line 1208–1215
-clearBatch()
-→ Current batch ke saare reviews clear karta hai.
+Line 939–954
+MAIN DASHBOARD UPDATE
+Selected product ke according MASTER_REVIEWS set karta hai,
+keywords extract karta hai, executive takeaways update karta hai
+aur filters apply karta hai.
 
-~ Line 1218–1227
-escapeHtml()
-→ Special HTML characters escape karke review text ko safely display karta hai.
+Line 956–964
+PORTFOLIO HERO UPDATE
+"All Products" selection ke liye hero card ka name, SKU,
+category, team aur review count update karta hai.
 
-================ API CALLS ================
+Line 967–988
+SPECIFIC PRODUCT HERO UPDATE
+Selected product ke metadata ke basis par hero card update karta hai.
+Reviews ke positive ratio se calculated star rating bhi generate
+karta hai.
 
-~ /api/health
-→ Python backend connection check karta hai.
 
-~ /api/analyze
-→ Single review ka sentiment/topic analysis backend se leta hai.
+============================================================
+EXECUTIVE INSIGHTS
+============================================================
 
-~ /api/batch
-→ Multiple reviews ko ek saath backend par analyze karta hai.
+Line 991–1021
+EXECUTIVE TAKEAWAYS
+Negative reviews ko product areas ke basis par count karta hai
+aur identify karta hai ki sabse zyada negative feedback kis
+business area mein hai.
 
-===========================================================
--->
+Line 1003–1004
+NEGATIVE CONCENTRATION
+Total negative reviews mein top negative area ka percentage
+calculate karta hai.
+
+
+============================================================
+KEYWORD ANALYTICS
+============================================================
+
+Line 1023–1064
+KEYWORD EXTRACTION & STATISTICS
+Reviews se keywords collect karta hai aur har keyword ke:
+- occurrence count
+- positive count
+- negative count
+- related areas
+
+calculate karta hai.
+
+Line 1068–1082
+TIME & SENTIMENT FILTER
+7 days, 30 days aur All Time time range ke options handle karta hai.
+Sentiment filter bhi apply karta hai.
+
+Line 1085–1093
+SENTIMENT FILTER CONTROLS
+Positive, Neutral ya Negative reviews ko isolate karta hai
+aur filter reset bhi kar sakta hai.
+
+Line 1091–1103
+FILTER APPLICATION
+Active product, area, sentiment aur time filters ke basis par
+reviews ko filter karta hai.
+
+
+============================================================
+DASHBOARD METRICS & CHARTS
+============================================================
+
+Line 1105–1149
+KPI METRICS CALCULATION
+Filtered reviews se:
+- total reviews
+- positive %
+- neutral %
+- negative %
+- average sentiment / NSS
+- negative concentration
+
+calculate karta hai.
+
+Line 1158–1178
+DONUT CHART UPDATE
+Positive, Neutral aur Negative percentages ko calculate karke
+SVG donut chart ke arcs update karta hai.
+
+Line 1181–1193
+TOP FRICTION AREA
+Negative reviews ke basis par sabse problematic product area
+identify karta hai aur friction rate calculate karta hai.
+
+Line 1195–1242
+PRODUCT AREA BARS
+Six product areas ke liye dynamic horizontal stacked bars
+generate karta hai.
+Har area mein Positive, Neutral aur Negative percentage
+display hota hai.
+
+
+============================================================
+KEYWORD CLOUD & REVIEW FEED
+============================================================
+
+Line 1244–1266
+KEYWORD CLOUD RENDERING
+Calculated keywords ko clickable UI chips ke form mein display
+karta hai.
+Keyword par click karke related reviews filter kiye ja sakte hain.
+
+Line 1269–1324
+CUSTOMER REVIEW FEED
+Filtered customer reviews ko individual cards mein render karta hai.
+Har review ke saath sentiment, score, confidence, product area
+aur keywords show hote hain.
+
+Line 1326–1335
+COPY FOR TEAM
+Selected review ko Product Review Alert format mein convert
+karta hai taaki team/Jira/Slack mein share kiya ja sake.
+
+
+============================================================
+CSV EXPORT
+============================================================
+
+Line 1337–1356
+CSV EXPORT
+Filtered reviews ko CSV format mein convert karta hai.
+Review text, product name, sentiment, score, confidence,
+product area aur keywords export karta hai.
+
+
+============================================================
+PASTE REVIEW / CUSTOM INGEST
+============================================================
+
+Line 1359–1365
+MODAL CONTROL
+Paste Reviews modal ko open aur close karta hai.
+
+Line 1367–1388
+CUSTOM REVIEW INGESTION
+User ke manually pasted reviews ko:
+1. Product name
+2. SKU
+3. Review text
+
+ke saath structured records mein convert karta hai.
+
+Har review ko unique review ID deta hai aur
+analyzeAndIngestBatch() ke through same analysis pipeline
+mein bhejta hai.
+
+
+============================================================
+OVERALL FLOW
+============================================================
+
+Customer Review / CSV
+        ↓
+index.html Dashboard
+        ↓
+CSV Parser / Paste Review
+        ↓
+/api/batch Python Backend
+        ↓
+Sentiment + Keywords + Product Area
+        ↓
+Backend Available?
+     ↙️           ↘️
+   YES            NO
+    ↓              ↓
+Python          Browser
+Analysis        Fallback
+     ↘️           ↙️
+        ↓
+Processed Reviews
+        ↓
+Product Filter + Sentiment Filter
+        ↓
+KPI Metrics + Donut Chart
+        ↓
+Product Area Bars + Keyword Cloud
+        ↓
+Customer Review Feed
+        ↓
+CSV Export / Team Sharing
+
+============================================================ -->
 
 <!DOCTYPE html>
 <html lang="en">
